@@ -6,6 +6,7 @@ import Register from "./components/Register";
 
 //importing App Components here
 import BucketList from './components/BucketList';
+import ListItem from './components/list_item'
 
 import "./App.scss";
 
@@ -17,6 +18,7 @@ function App() {
         {/* <Link to="/login">Click to login</Link> */}
         <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
+        <ListItem />
       </div>
     </Router>
   );
