@@ -4,6 +4,9 @@ import './App.scss';
 //importing BucketList component
 import BucketList from './components/BucketList';
 
+//importing our Route component from react router dom
+import { Route } from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
