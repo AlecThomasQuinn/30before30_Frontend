@@ -1,0 +1,51 @@
+html body {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+
+  .App {
+    width: 450px;
+    height: auto;
+
+    .navTabs {
+      display: flex;
+      justify-content: space-evenly;
+
+      #activeTab {
+        width: 50%;
+        border-right: 1px solid gray;
+      }
+      #achievedTab {
+        width: 50%;
+      }
+    }
+
+    .bucketListItem{
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+      border: 1px solid red;
+      padding: .5rem;
+      margin: 1rem;
+
+      .itemDetails{
+        padding: .5rem;
+      }
+
+      h3 {
+        margin: 0;
+      }
+
+      p {
+        font-size: .8rem;
+      }
+
+      img {
+        width: 20%;
+        height: 10%;
+      }
+    }
+  }
+
+}
