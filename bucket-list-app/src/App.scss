@@ -2,11 +2,39 @@ html body {
   display: flex;
   justify-content: center;
   text-align: center;
-
-
+  
+  
   .App {
     width: 450px;
-    height: auto;
+    height: 100%;
+    margin: 1rem;
+    padding: 1rem;
+
+    
+    .BucketListHeader {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      height: 8rem;
+      margin-bottom: 1rem;
+      
+      .headerUtilities{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 20%;
+      }
+
+      h1{
+        margin-right: 3.5rem;
+      }
+
+    }
+      #bucketListProgress{
+        display: flex;
+        justify-content: flex-end;
+      }
 
     .navTabs {
       display: flex;
@@ -21,31 +49,70 @@ html body {
       }
     }
 
-    .bucketListItem{
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      border: 1px solid red;
-      padding: .5rem;
-      margin: 1rem;
+    .bucketListBody {
+      height: 100%;
+      margin-top: 1rem;
 
-      .itemDetails{
+      .bucketListItem{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+        border: 1px solid red;
         padding: .5rem;
+  
+        .itemDetails{
+          padding: .5rem;
+        }
+  
+        h3 {
+          margin: 0;
+        }
+  
+        p {
+          font-size: .8rem;
+        }
+  
+        img {
+          width: 20%;
+          height: 10%;
+        }
+  
       }
 
-      h3 {
-        margin: 0;
-      }
+      .AddItemButton {
+        display: flex;
+        justify-content: flex-end;
 
-      p {
-        font-size: .8rem;
-      }
-
-      img {
-        width: 20%;
-        height: 10%;
+        button {
+          margin: .7rem;
+        }
       }
     }
+
+    .footerTabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-bottom: 1rem;
+
+
+      #bucketListTab{
+        width: 33%;
+        border-right: 1px solid gray;
+      }
+      
+      #categoriesTab{
+        width: 33%;
+        border-right: 1px solid gray;
+        
+      }
+      
+      #settingsTab{
+        width: 33%
+
+      }
+    }
+
   }
 
 }
