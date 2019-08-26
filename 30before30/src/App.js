@@ -6,7 +6,7 @@ import Register from "./components/Register";
 
 //importing App Components here
 import BucketList from './components/BucketList';
-import ListItem from './components/list_item'
+import {default as ListItem} from './components/ListItemFunction';
 
 import "./App.scss";
 
