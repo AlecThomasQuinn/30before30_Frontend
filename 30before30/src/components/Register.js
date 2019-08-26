@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-class Login extends React.Component {
+class Register extends React.Component {
   state = {
     credentials: {
       username: "",
@@ -24,13 +24,13 @@ class Login extends React.Component {
     console.log("state", this.state.credentials);
     axios
       .post(
-        "https://thirty-before-thirty-bw.herokuapp.com/auth/login",
+        "https://thirty-before-thirty-bw.herokuapp.com/auth/register",
         this.state.credentials
       )
       .then(response => {
         console.log("response value: ", response);
-        localStorage.setItem("token", response.data.payload);
-        this.props.history.push("/protected");
+        // localStorage.setItem("token", response.data.payload);
+        this.props.history.push("/login");
       })
       .catch(err => console.log("error: ", err.response));
   };
@@ -38,7 +38,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="app">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <div>
           <form onSubmit={this.login}>
             <input
@@ -55,13 +55,12 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-            <button type="submit">Log in</button>
+            <button type="submit">Register!</button>
           </form>
-          <button onClick={() => localStorage.clear()}>Log Out</button>
         </div>
       </div>
     );
   }
 }
 
-export default Login;
+export default Register;
