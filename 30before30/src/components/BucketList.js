@@ -3,6 +3,9 @@ import React from 'react';
 //importing BucketListItem component
 import BucketListItem from './BucketListItem';
 
+//importing NavigationTabs Component
+import NavigationTabs from './NavigationTabs';
+
 class BucketList extends React.Component {
     
 
@@ -29,6 +32,7 @@ class BucketList extends React.Component {
                         <button>Add</button>
                     </div>
                 </div>
+                <NavigationTabs />
             </div>
         )
     }
