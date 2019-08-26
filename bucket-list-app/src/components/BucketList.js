@@ -1,8 +1,5 @@
 import React from 'react';
 
-//importing our Route component from react router dom
-import { Route } from 'react-router-dom';
-
 //importing BucketListItem component
 import BucketListItem from './BucketListItem';
 
@@ -11,7 +8,7 @@ class BucketList extends React.Component {
 
     render(){
         return (
-            <>
+            <div className='bucketListScene'>
                 <div className='BucketListHeader'>
                     <h1>Bucket List</h1>
                     <div className='headerUtilities'>
@@ -32,7 +29,7 @@ class BucketList extends React.Component {
                         <button>Add</button>
                     </div>
                 </div>
-            </>
+            </div>
         )
     }
 };
