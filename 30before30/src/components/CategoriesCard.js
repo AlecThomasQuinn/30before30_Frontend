@@ -6,17 +6,10 @@ export default function CategoriesCard () {
         <Card>
           <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
           <Card.Content>
-            <Card.Header>Daniel</Card.Header>
-            <Card.Meta>Joined in 2016</Card.Meta>
+            <Card.Header>Fitness</Card.Header>
             <Card.Description>
-              Daniel is a comedian living in Nashville.
+              Make your fitness 30 before 30 here.
             </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <a>
-              <Icon name='user' />
-              10 Friends
-            </a>
           </Card.Content>
         </Card>
       )
