@@ -28,6 +28,7 @@ const ListItem = ({errors, touched, values, status}) => {
     useEffect(() => {
         if (status) {
           setItems([...items, status]);
+          console.log(items);
         }
       }, [status]);
 
@@ -71,14 +72,16 @@ const ListItem = ({errors, touched, values, status}) => {
                 <button>Submit.</button>
                 </Form>
 
+                    {/* just mapping to verify object is there */}
                     {items.map(item => (
                         <ul key={item.id}>
+                            <li>ID: {item.id}</li>
+                            <li>complete: {item.complete.toString()}</li>
                             <li>name: {item.name}</li>
                             <li>description: {item.description}</li>
-                            <li>privacy: {item.privacy}</li>
-                            <li>category: {item.category}</li>
+                            <li>privacy: {item.privacy.toString()}</li>
+                            <li>category_name: {item.category}</li>
                             <li>target_date: {item.target_date}</li>
-                            <li>complete: {item.complete}</li>
                         </ul>
                     ))}
 
@@ -89,10 +92,11 @@ const ListItem = ({errors, touched, values, status}) => {
 const FormikListItem = withFormik({
     mapPropsToValues({ name, description, privacy, category, target_date, complete }) {
         return{
+            id: Date.now(),
             name: name || '',
             description: description || '',
             privacy: privacy || true,
-            category: category || '',
+            category_name: category || '',
             target_date: target_date || '',
             complete: complete || false
         };
@@ -100,6 +104,7 @@ const FormikListItem = withFormik({
 
     handleSubmit(values, { setStatus }){
         axios
+        //https://thirty-before-thirty-bw.herokuapp.com//api/items
         .post('https://reqres.in/api/users', values)
         .then(response => {
             console.log(response.data);
