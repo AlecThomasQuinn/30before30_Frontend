@@ -5,7 +5,7 @@ export default function CategoriesTab () {
     
     return (
         <div>
-        <Link>Categories</Link>
+        <Link to="/CategoriesCard">Categories</Link>
         </div>
     )
 
