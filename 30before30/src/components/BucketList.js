@@ -85,7 +85,7 @@ class BucketList extends React.Component {
     render(){
   
         axiosWithAuth()
-            .get('https://thirty-before-thirty-bw.herokuapp.com/api/items')
+            .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
             .then(res => console.log(res))
             .catch(err => console.log(err.response))
   
