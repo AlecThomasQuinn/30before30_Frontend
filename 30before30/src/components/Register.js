@@ -36,8 +36,9 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="Register">
         <h1>Register</h1>
+        <p>Please create a unique username and password:</p>
         <div>
           <form onSubmit={this.login}>
             <input
