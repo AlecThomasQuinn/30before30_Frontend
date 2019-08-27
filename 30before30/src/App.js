@@ -6,9 +6,10 @@ import Register from "./components/Register";
 
 //importing App Components here
 import BucketList from './components/BucketList';
+import CategoriesTab from "./components/CategoriesTab";
 
 import "./App.scss";
-import CategoriesTab from "./components/CategoriesTab";
+
 
 function App() {
   return (
