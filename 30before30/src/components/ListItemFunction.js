@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Field, withFormik } from "formik"; // a library to make making forms easier
 import * as Yup from "yup"; // for validation
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 
 // once 'Add Item' is clicked on the bucket list, this ListItem function is called and
 // the following form renders
-
 
 const ListItem = ({errors, touched, values, status}) => {
 
@@ -36,40 +36,42 @@ const ListItem = ({errors, touched, values, status}) => {
             <div>
                 <h1>I am a list item</h1>
                 <Form >
-                <span>Goal achieved?</span>
-                <Field 
-                    name='complete' 
-                    type='checkbox' 
-                    checked={values.complete} 
-                />
-                <Field 
-                    name='name' 
-                    type='text' 
-                    placeholder='Your goal here' 
-                />
-                <Field 
-                    name='description' 
-                    component='textarea'
-                    type='text' 
-                    placeholder='A brief description of your goal' 
-                />
-                
-                <span>Make this item private</span>
-                <Field 
-                    name='privacy' 
-                    type='checkbox' 
-                    checked={values.privacy} 
-                />
-                <Field name='category' component='select'>
-                    <option>Please select a category</option>
-                    <option>category 1</option>
-                    <option>category 2</option>
-                    <option>category 3</option>
-                </Field>
-                <Field
-                    name='target_date' type='date'
-                />
-                <button>Submit.</button>
+                    <span>Goal achieved?</span>
+                    <Field 
+                        name='complete' 
+                        type='checkbox' 
+                        checked={values.complete} 
+                    />
+                    <Field 
+                        name='name' 
+                        type='text' 
+                        placeholder='Your goal here' 
+                    />
+                    <Field 
+                        name='description' 
+                        component='textarea'
+                        type='text' 
+                        placeholder='A brief description of your goal' 
+                    />
+                    
+                    <span>Make this item private</span>
+                    <Field 
+                        name='privacy' 
+                        type='checkbox' 
+                        checked={values.privacy} 
+                    />
+                    <Field name='category' component='select'>
+                        <option>Please select a category</option>
+                        <option>category 1</option>
+                        <option>category 2</option>
+                        <option>category 3</option>
+                    </Field>
+                    <Field
+                        name='target_date' type='date'
+                    />
+                    
+                    {/* console log's like a mofo but you will see the array populate when the submit button is clicked */}
+                    <button onCLick={console.log(items)}> Submit.</button> 
                 </Form>
 
                     {/* just mapping to verify object is there */}
@@ -104,14 +106,22 @@ const FormikListItem = withFormik({
 
     handleSubmit(values, { setStatus }){
         axios
-        //https://thirty-before-thirty-bw.herokuapp.com//api/items
+        //https://reqres.in/api/users
+        //https://thirty-before-thirty-bw.herokuapp.com/api/items
         .post('https://reqres.in/api/users', values)
         .then(response => {
             console.log(response.data);
             setStatus(response.data);
         })
+        .catch(error => {
+            console.log('axios catch from FormikListItem:', error);
+        })
+
+        //using axiosWithAuth() from utilites folder
+
     }
 
 })(ListItem);
+
 
 export default FormikListItem; 
