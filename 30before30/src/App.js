@@ -8,6 +8,8 @@ import Register from "./components/Register";
 import BucketList from './components/BucketList';
 
 import "./App.scss";
+import CategoriesCard from "./components/CategoriesCard";
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         {/* <Link to="/login">Click to login</Link> */}
         <Route exact path="/bucket-list" component={BucketList} />
+        <Route exact path="/categoriesCard" component={CategoriesCard}/>
       </div>
     </Router>
   );
