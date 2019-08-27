@@ -1,12 +1,11 @@
 import React from 'react';
 
-//importing BucketListItem component
+//importing Active & Achieved component's list
 import ActiveItem from './ActiveItem';
+import AchievedItem from './AchievedItem';
 
 //importing NavigationTabs Component
 import NavigationTabs from './NavigationTabs';
-
-import { Link } from 'react-router-dom';
 
 class BucketList extends React.Component {
     
@@ -15,9 +14,31 @@ class BucketList extends React.Component {
         achieved: false
     }
     
-    
+    activeTab = () => {
+        if (this.state.active === false){
+            this.setState({ active: true, achieved: false})
+        }else if(this.state.active === true){
+            return this.state
+        }
+    }
+    achievedTab = () => {
+        if (this.state.achieved === false){
+            this.setState({ active: false, achieved: true})
+        }else if(this.state.achieved === false){
+            return this.state
+        }
+    }
 
+    renderBucketList = () => {
+        if (this.state.active === true){
+            return <ActiveItem />
+        } else {
+            return <AchievedItem />
+        }
+    }
+    
     render(){
+        console.log(this.state)
         return (
             <div className='bucketListScene'>
                 <div className='BucketListHeader'>
@@ -31,11 +52,21 @@ class BucketList extends React.Component {
                     <p id='bucketListProgress'>Progress: %0</p>
                 </div>
                 <div className='navTabs'>
-                    <Link to='/active'>Active</Link>
-                    <Link to='/achieved'>Achieved</Link>
+                  <div 
+                  id ='activeTab'
+                  onClick={this.activeTab}
+                  >
+                    Active
+                  </div>
+                  <div 
+                  id='achievedTab'
+                  onClick={this.achievedTab}
+                  >
+                    Achieved
+                  </div>
                 </div>
                 <div className='bucketListBody'>
-                    <ActiveItem />
+                    {this.renderBucketList()}
                 </div>
                 <div className='AddItemButton'>
                     <button>Add</button>

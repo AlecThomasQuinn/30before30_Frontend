@@ -15,9 +15,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/" component={Register} />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/register" component={Register} />
         {/* <Link to="/login">Click to login</Link> */}
-        <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
         <Route exact path="/achieved" component={AchievedItem} />
         <Route exact path="/active" component={ActiveItem} />
