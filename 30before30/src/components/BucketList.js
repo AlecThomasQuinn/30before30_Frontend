@@ -12,12 +12,24 @@ import { Link } from 'react-router-dom';
 
 //importing Sort component
 import SortComponent from './SortComponent';
+
 //importing Search Bar component
 import SearchBar from './SearchBar';
 
 class BucketList extends React.Component {
     
     state = {
+        bucketList: [{
+            "id": 4,
+            "name": "plant a garden",
+            "description": "a description",
+            "user_id": 2,
+            "category_id": 4,
+            "privacy": "public",
+            "complete": false,
+            "target_date": "2020-01-03",
+            "category_name": "Learning"
+          }],
         active: true,
         achieved: false,
         search: false,
@@ -44,9 +56,9 @@ class BucketList extends React.Component {
     //Renders the active component upon click
     renderBucketList = () => {
         if (this.state.active === true){
-            return <ActiveItem />
+            return this.state.bucketList.map(item => <ActiveItem item={item} key={item.id}/>)
         } else {
-            return <AchievedItem />
+            return this.state.bucketList.map(item => <AchievedItem item={item} key={item.id}/>)
         }
     }
  
@@ -63,7 +75,7 @@ class BucketList extends React.Component {
     //Renders search bar when active, hides when not
     renderSearch = () => {
         if (this.state.search === true){
-            return <SearchBar />
+            return <SearchBar list={this.state.bucketList}/>
         }
     }
     
@@ -85,7 +97,6 @@ class BucketList extends React.Component {
                     <div className='bucketListSearchBar'>
                         {this.renderSearch()}
                     </div>
-                    {/* <SearchBar /> */}
                 </div>
                 <div id='bucketListProgress'>
                     <p id='bucketListProgress'>Progress: %0</p>
