@@ -7,52 +7,57 @@ import * as Yup from "yup"; // for validation
 // once 'Add Item' is clicked on the bucket list, this ListItem function is called and
 // the following form renders
 
-// {
-//     "id": 4,
-//     "name": "plant a garden",
-//     "description": "a description",
-//     "user_id": 2,
-//     "category_id": 4,
-//     "privacy": "public",
-//     "complete": false,
-//     "target_date": "2020-01-03",
+
+const ListItem = ({errors, touched, values, status}) => {
+
+    // {
+//     "id": 4,                             need ListItem ID on object
+//     "name": "plant a garden",            On Form 
+//     "description": "a description",      On Form
+//     "user_id": 2,                        need User ID on object
+//     "category_id": 4,                    On Form
+//     "privacy": "public",                 On Form
+//     "complete": false,                   On Form
+//     "target_date": "2020-01-03",         On Form
 // }
-
-
-const ListItem = () => {
-
-    // name,
-    // description
-    // category (dropdown)
-    // privacy toggle (check, private checked as default)
-    // status (active, acheived) <--- I don't think this needs to be on the form, just a part of the ListItem object
-    // target date (calendar input)
-
 
     // need post request on submit AND 'put' request, will handle put w/ team
 
-    const [item, SetItem] = useState([]);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        if (status) {
+          setItems([...items, status]);
+        }
+      }, [status]);
 
         return(
             <div>
                 <h1>I am a list item</h1>
-                <form >
+                <Form >
+                <span>Goal achieved?</span>
+                <Field 
+                    name='complete' 
+                    type='checkbox' 
+                    checked={values.complete} 
+                />
                 <Field 
                     name='name' 
                     type='text' 
                     placeholder='Your goal here' 
                 />
                 <Field 
-                    component='textarea'
                     name='description' 
+                    component='textarea'
                     type='text' 
                     placeholder='A brief description of your goal' 
                 />
+                
                 <span>Make this item private</span>
                 <Field 
                     name='privacy' 
                     type='checkbox' 
-                    checked='true' 
+                    checked={values.privacy} 
                 />
                 <Field name='category' component='select'>
                     <option>Please select a category</option>
@@ -63,12 +68,45 @@ const ListItem = () => {
                 <Field
                     name='target_date' type='date'
                 />
-                
-                </form>
+                <button>Submit.</button>
+                </Form>
+
+                    {items.map(item => (
+                        <ul key={item.id}>
+                            <li>name: {item.name}</li>
+                            <li>description: {item.description}</li>
+                            <li>privacy: {item.privacy}</li>
+                            <li>category: {item.category}</li>
+                            <li>target_date: {item.target_date}</li>
+                            <li>complete: {item.complete}</li>
+                        </ul>
+                    ))}
+
             </div>
-        )
+        );
 };
 
-const FormikListItem = withFormik({})(ListItem);
+const FormikListItem = withFormik({
+    mapPropsToValues({ name, description, privacy, category, target_date, complete }) {
+        return{
+            name: name || '',
+            description: description || '',
+            privacy: privacy || true,
+            category: category || '',
+            target_date: target_date || '',
+            complete: complete || false
+        };
+    },
 
-export default FormikListItem;
+    handleSubmit(values, { setStatus }){
+        axios
+        .post('https://reqres.in/api/users', values)
+        .then(response => {
+            console.log(response.data);
+            setStatus(response.data);
+        })
+    }
+
+})(ListItem);
+
+export default FormikListItem; 
