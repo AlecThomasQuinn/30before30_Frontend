@@ -30,7 +30,7 @@ class Login extends React.Component {
       .then(response => {
         console.log("response value: ", response);
         localStorage.setItem("token", response.data.payload);
-        this.props.history.push("/protected");
+        this.props.history.push("/bucket-list");
       })
       .catch(err => console.log("error: ", err.response));
   };
