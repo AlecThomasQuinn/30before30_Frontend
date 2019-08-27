@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
+import "semantic-ui-css/semantic.min.css";
 //importing App Components here
 import BucketList from './components/BucketList';
 import CategoriesTab from "./components/CategoriesTab";
