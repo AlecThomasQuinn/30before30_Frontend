@@ -18,7 +18,7 @@ function App() {
         {/* <Link to="/login">Click to login</Link> */}
         <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
-        <ListItem />
+        <Route exact path="/list-item" component={ListItem} />
       </div>
     </Router>
   );
