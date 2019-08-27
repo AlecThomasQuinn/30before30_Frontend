@@ -1,6 +1,8 @@
 html {
 
   body {
+    display: flex;
+    justify-content: center;
     
     .App {
       width: 450px;
@@ -81,13 +83,14 @@ html {
             
           }
           
-          .AddItemButton {
-            display: flex;
-            justify-content: flex-end;
-  
-            button {
-              margin-top: .7rem;
-            }
+        }
+        
+        .AddItemButton {
+          display: flex;
+          justify-content: flex-end;
+
+          button {
+            margin-top: .7rem;
           }
         }
       }

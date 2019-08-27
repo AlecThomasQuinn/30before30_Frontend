@@ -1,6 +1,6 @@
 import React from 'react';
 
-class BucketListItem extends React.Component {
+class ActiveItem extends React.Component {
 
 
     render(){
@@ -19,4 +19,4 @@ class BucketListItem extends React.Component {
     }
 };
 
-export default BucketListItem;
+export default ActiveItem;

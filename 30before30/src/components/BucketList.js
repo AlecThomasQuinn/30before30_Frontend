@@ -1,12 +1,20 @@
 import React from 'react';
 
 //importing BucketListItem component
-import BucketListItem from './BucketListItem';
+import ActiveItem from './ActiveItem';
 
 //importing NavigationTabs Component
 import NavigationTabs from './NavigationTabs';
 
+import { Link } from 'react-router-dom';
+
 class BucketList extends React.Component {
+    
+    state = {
+        active: true,
+        achieved: false
+    }
+    
     
 
     render(){
@@ -23,14 +31,14 @@ class BucketList extends React.Component {
                     <p id='bucketListProgress'>Progress: %0</p>
                 </div>
                 <div className='navTabs'>
-                    <label id='activeTab'>Active</label>
-                    <label id='achievedTab'>Achieved</label>
+                    <Link to='/active'>Active</Link>
+                    <Link to='/achieved'>Achieved</Link>
                 </div>
                 <div className='bucketListBody'>
-                    <BucketListItem />
-                    <div className='AddItemButton'>
-                        <button>Add</button>
-                    </div>
+                    <ActiveItem />
+                </div>
+                <div className='AddItemButton'>
+                    <button>Add</button>
                 </div>
                 <NavigationTabs />
             </div>
