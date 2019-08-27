@@ -19,6 +19,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
         <Route exact path="/list-item" component={ListItem} />
+        <ListItem />
       </div>
     </Router>
   );

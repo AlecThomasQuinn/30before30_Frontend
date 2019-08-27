@@ -60,7 +60,9 @@ const ListItem = () => {
                     <option>category 2</option>
                     <option>category 3</option>
                 </Field>
-
+                <Field
+                    name='target_date' type='date'
+                />
                 
                 </form>
             </div>
