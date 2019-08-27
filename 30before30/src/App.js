@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import BucketList from './components/BucketList';
 
 import "./App.scss";
+import CategoriesTab from "./components/CategoriesTab";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         {/* <Link to="/login">Click to login</Link> */}
         <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
+        <Route exact path="/categories" component={CategoriesTab}/>
       </div>
     </Router>
   );
