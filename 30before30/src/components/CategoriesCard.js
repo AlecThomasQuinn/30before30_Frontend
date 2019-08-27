@@ -2,7 +2,8 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
 export default function CategoriesCard () {
-    const CardExampleImageCard = () => (
+
+    return (
         <Card>
           <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
           <Card.Content>
@@ -12,7 +13,5 @@ export default function CategoriesCard () {
             </Card.Description>
           </Card.Content>
         </Card>
-      )
-      
-      export default CardExampleImageCard
+    )
 }
