@@ -5,7 +5,7 @@ import "semantic-ui-css/semantic.min.css";
 export default function CategoriesCard () {
 
     return (
-
+        
     <div className="category-list">
         <Card className="card" id="travel"
             href='#card-example-link-card'
@@ -21,7 +21,7 @@ export default function CategoriesCard () {
             href='#card-example-link-card'
             header='Work'
         />
-
+        
         <Card className="card" id="learning"
             href='#card-example-link-card'
             header='Learning'
