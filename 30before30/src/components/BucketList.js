@@ -1,4 +1,5 @@
 import React from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 //importing Active & Achieved component's list
 import ActiveItem from './ActiveItem';
@@ -78,10 +79,18 @@ class BucketList extends React.Component {
             return <SearchBar list={this.state.bucketList}/>
         }
     }
+
+    
     
     render(){
-
-        console.log(this.state)
+  
+        axiosWithAuth()
+            .get('https://thirty-before-thirty-bw.herokuapp.com/api/items')
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response))
+  
+        
+        // console.log(this.state)
         return (
             <div className='bucketListScene'>
                 <div className='BucketListHeader'>
