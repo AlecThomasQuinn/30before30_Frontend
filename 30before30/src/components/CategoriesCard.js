@@ -6,33 +6,33 @@ export default function CategoriesCard () {
 
     return (
 
-    <div>
-        <Card className="travel"
-    href='#card-example-link-card'
-    header='Travel'
+    <div className="category-list">
+        <Card className="card" id="travel"
+            href='#card-example-link-card'
+            header='Travel'
         />
 
-        <Card className="health-and-fitness-card"
+        <Card className="card" id="health-and-fitness"
             href='#card-example-link-card'
             header='Health and Fitness'
         />
 
-        <Card className="work-card"
+        <Card className="card" id="work"
             href='#card-example-link-card'
             header='Work'
         />
 
-        <Card className="Learning-card"
+        <Card className="card" id="learning"
             href='#card-example-link-card'
             header='Learning'
         />
 
-        <Card className="love-card"
+        <Card className="card" id="love"
             href='#card-example-link-card'
             header='Love'
         />
 
-        <Card className="Unspecified-card"
+        <Card className="card" id="unspecified"
             href='#card-example-link-card'
             header='Unspecified'
         />

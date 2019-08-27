@@ -7,7 +7,6 @@ import Register from "./components/Register";
 import "semantic-ui-css/semantic.min.css";
 //importing App Components here
 import BucketList from './components/BucketList';
-import CategoriesTab from "./components/CategoriesTab";
 
 import "./App.scss";
 import CategoriesCard from "./components/CategoriesCard";
@@ -21,7 +20,6 @@ function App() {
         {/* <Link to="/login">Click to login</Link> */}
         <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
-        <Route exact path="/categories" component={CategoriesTab}/>
         <Route exact path="/categoriesCard" component={CategoriesCard}/>
       </div>
     </Router>
