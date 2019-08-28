@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class Login extends React.Component {
       )
       .then(response => {
         console.log("response value: ", response);
-        localStorage.setItem("token", response.data.payload);
+        localStorage.setItem("token", response.data.token);
         this.props.history.push("/bucket-list");
       })
       .catch(err => console.log("error: ", err.response));
@@ -58,7 +59,9 @@ class Login extends React.Component {
             />
             <button type="submit">Log in</button>
           </form>
-          {/* <button onClick={() => localStorage.clear()}>Log Out</button> */}
+          <Link to="/register">
+            <h3>Don't have an account? Register now!</h3>
+          </Link>
         </div>
       </div>
     );

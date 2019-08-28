@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Register extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class Register extends React.Component {
       )
       .then(response => {
         console.log("response value: ", response);
-        this.props.history.push("/login");
+        this.props.history.push("/");
       })
       .catch(err => console.log("error: ", err.response));
   };
@@ -57,6 +58,9 @@ class Register extends React.Component {
             />
             <button type="submit">Register!</button>
           </form>
+          <Link to="/">
+            <h3>Login now!</h3>
+          </Link>
         </div>
       </div>
     );

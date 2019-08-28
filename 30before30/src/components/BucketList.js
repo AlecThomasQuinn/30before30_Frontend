@@ -1,4 +1,5 @@
 import React from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 //importing BucketListItem component
 import BucketListItem from "./BucketListItem";
@@ -9,6 +10,12 @@ import SettingsMenu from "./SettingsMenu";
 
 class BucketList extends React.Component {
   render() {
+    axiosWithAuth()
+      .get("https://thirty-before-thirty-bw.herokuapp.com/api/user-items")
+      .then(response => {
+        console.log("get response", response);
+      })
+      .catch(err => console.log("error: ", err.response));
     return (
       <>
         <div id="App">
