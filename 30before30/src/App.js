@@ -8,9 +8,11 @@ import "semantic-ui-css/semantic.min.css";
 //importing App Components here
 import BucketList from './components/BucketList';
 import {default as ListItem} from './components/ListItemFunction';
+import CategoriesCard from "./components/CategoriesCard";
+import TravelComponent from  "./components/TravelComponent";
 
 import "./App.scss";
-import CategoriesCard from "./components/CategoriesCard";
+
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Route exact path="/bucket-list" component={BucketList} />
         <Route exact path="/list-item" component={ListItem} />
         <Route exact path="/categoriesCard" component={CategoriesCard}/>
+        <Route exact path="/travel" component={TravelComponent} />
       </div>
     </Router>
   );
