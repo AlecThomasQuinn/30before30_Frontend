@@ -5,7 +5,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 //importing App Components here
-import BucketList from "./components/BucketList";
+import BucketList from './components/BucketList';
+import {default as ListItem} from './components/ListItemFunction';
 
 import "./App.scss";
 import CategoriesCard from "./components/CategoriesCard";
@@ -20,6 +21,7 @@ function App() {
         {/* <Link to="/login">Click to login</Link> */}
         <Route exact path="/bucket-list" component={BucketList} />
         <Route exact path="/categoriesCard" component={CategoriesCard}/>
+        <Route exact path="/list-item" component={ListItem} />
       </div>
     </Router>
   );
