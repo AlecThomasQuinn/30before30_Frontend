@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 //importing App Components here
-import BucketList from './components/BucketList';
+import BucketList from "./components/BucketList";
 
 import "./App.scss";
 import CategoriesCard from "./components/CategoriesCard";

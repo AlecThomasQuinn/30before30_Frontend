@@ -2,20 +2,10 @@ import React from 'react';
 
 class SearchBar extends React.Component {
 
+    searchValue = this.props.list.searchValue
 
     changeHandler = e => {
-        this.setState({bucketList: e.target.value})
-    }
-
-    searchItem = e => {
-        e.preventDefault()
-        this.props.list.map(item => {
-            if(item.name === e.target.value){
-                return item;
-            }else{
-                return console.log('Item not found')
-            }
-        })
+        this.setState({searchValue: e.target.value})
     }
 
     render(){
@@ -26,8 +16,8 @@ class SearchBar extends React.Component {
                     type='text' 
                     name='title'
                     placeholder='Search Bucket List'
-                    value={this.props.list.map(item => item.name)}
-                    onChange={this.changeHandler}
+                    value={this.searchValue}
+                    onChange={this.changeHandler.bind(this)}
                 />
                 <button
                 type='submit'

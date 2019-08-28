@@ -6,7 +6,10 @@ import ActiveItem from './ActiveItem';
 import AchievedItem from './AchievedItem';
 
 //importing NavigationTabs Component
-import NavigationTabs from './NavigationTabs';
+import NavigationTabs from "./NavigationTabs";
+
+//importing settings menu component
+import SettingsMenu from "./SettingsMenu";
 
 //importing Link from react router dom to push user to different scenes
 import { Link } from 'react-router-dom';
@@ -34,6 +37,7 @@ class BucketList extends React.Component {
         active: true,
         achieved: false,
         search: false,
+        searchValue: ''
         // sort: false
     }
     
@@ -76,25 +80,28 @@ class BucketList extends React.Component {
     //Renders search bar when active, hides when not
     renderSearch = () => {
         if (this.state.search === true){
-            return <SearchBar list={this.state.bucketList}/>
+            return <SearchBar list={this.state} />
         }
     }
 
-    
-    
     render(){
   
-        axiosWithAuth()
-            .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
-            .then(res => console.log(res))
-            .catch(err => console.log(err.response))
+        // axiosWithAuth()
+        //     .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
+        //     .then(res => console.log(res))
+        //     .catch(err => console.log(err.response))
   
         
         // console.log(this.state)
         return (
+            <>
+            {/* <div id="App">
+            <SettingsMenu pageWrapId={"page-wrap"} outerContainerId={"App"} />
+            </div> */}
             <div className='bucketListScene'>
                 <div className='BucketListHeader'>
                     <h1>Bucket List</h1>
+                    {/* <SettingsMenu /> */}
                     <div className='headerUtilities'>
                         <h5>Sort</h5>
                         {/* <SortComponent /> */}
@@ -111,18 +118,18 @@ class BucketList extends React.Component {
                     <p id='bucketListProgress'>Progress: %0</p>
                 </div>
                 <div className='navTabs'>
-                  <div 
-                  id ='activeTab'
-                  onClick={this.activeTab}
-                  >
+                    <div 
+                    id ='activeTab'
+                    onClick={this.activeTab}
+                    >
                     Active
-                  </div>
-                  <div 
-                  id='achievedTab'
-                  onClick={this.achievedTab}
-                  >
+                    </div>
+                    <div 
+                    id='achievedTab'
+                    onClick={this.achievedTab}
+                    >
                     Achieved
-                  </div>
+                    </div>
                 </div>
                 <div className='bucketListBody'>
                     {this.renderBucketList()}
@@ -132,8 +139,9 @@ class BucketList extends React.Component {
                 </div>
                 <NavigationTabs />
             </div>
+            </>
         )
     }
-};
+}
 
 export default BucketList;
