@@ -30,15 +30,16 @@ class Login extends React.Component {
       .then(response => {
         console.log("response value: ", response);
         localStorage.setItem("token", response.data.payload);
-        this.props.history.push("/protected");
+        this.props.history.push("/bucket-list");
       })
       .catch(err => console.log("error: ", err.response));
   };
 
   render() {
     return (
-      <div className="app">
-        <h1>Login</h1>
+      <div className="Login">
+        <h1>Welcome!</h1>
+        <h3>Please login</h3>
         <div>
           <form onSubmit={this.login}>
             <input
@@ -57,7 +58,7 @@ class Login extends React.Component {
             />
             <button type="submit">Log in</button>
           </form>
-          <button onClick={() => localStorage.clear()}>Log Out</button>
+          {/* <button onClick={() => localStorage.clear()}>Log Out</button> */}
         </div>
       </div>
     );
