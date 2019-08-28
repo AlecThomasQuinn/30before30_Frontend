@@ -21,6 +21,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
         <Route exact path="/list-item" component={ListItem} />
+        <Route exact path="/categoriesCard" component={CategoriesCard}/>
       </div>
     </Router>
   );
