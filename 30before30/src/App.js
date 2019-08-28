@@ -10,6 +10,7 @@ import BucketList from './components/BucketList';
 import {default as ListItem} from './components/ListItemFunction';
 import CategoriesCard from "./components/CategoriesCard";
 import TravelComponent from  "./components/TravelComponent";
+import HealthAndFitnessComponent from "./components/HealthAndFitnessComponent";
 
 import "./App.scss";
 
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/list-item" component={ListItem} />
         <Route exact path="/categoriesCard" component={CategoriesCard}/>
         <Route exact path="/travel" component={TravelComponent} />
+        <Route exact path="/health-and-fitness" component={HealthAndFitnessComponent} />
       </div>
     </Router>
   );
