@@ -1,5 +1,5 @@
 import React from "react";
-import { bubble as Menu } from "react-burger-menu";
+import { reveal as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
 import "./SettingsMenu.css";
 
