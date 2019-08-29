@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Manjari&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Manjari|Red+Hat+Text&display=swap");
 @import "./mixins/mixins.scss";
 
 html {
@@ -7,23 +6,16 @@ html {
     display: flex;
     justify-content: center;
     @media (min-width: 1000px) {
-      text-align: center;
-      width: auto;
+      width: 0;
     }
 
     .App {
-      //desktop - @media(min-width: 1000px)
-      //mobile - dont specificy min width for mobile cause its our default
-      @media (min-width: 1000px) {
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        font-family: "Manjari", sans-serif;
-      }
-     
       width: 29rem;
       height: 100%;
       background-color: #025395;
+      @media (min-width: 1000px) {
+        width: 150%;
+      }
 
       .bucketListScene {
         .BucketListHeader {
@@ -183,20 +175,42 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
-
+  width: auto;
   @media (min-width: 1000px) {
+    width: 250%;
+    background-image: url("https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     text-align: center;
-    width: 100%;
   }
 }
 
 .LoginHeader {
   color: whitesmoke;
+  padding: 20px;
+  @include font;
+  margin-bottom: 15px;
+
+  h1 {
+    @include font;
+    padding: 1rem;
+    @media (min-width: 1000px) {
+      font-size: 50px;
+      color: #025395;
+    }
+  }
+}
+.plogin {
+  color: whitesmoke;
   padding: 15px;
   @include font;
   margin-bottom: 15px;
-  h1 {
-    font-family: "Red Hat Text", sans-serif;
+
+  @media (min-width: 1000px) {
+    font-size: 25px;
+    color: #025395;
+    background-color: silver;
+    opacity: 0.5;
+    margin-left: 60px;
+    margin-right: 60px;
   }
 }
 
@@ -204,28 +218,44 @@ html {
   padding: 1.5rem;
   @include font;
   color: #75b6ed;
+  @media (min-width: 1000px) {
+    font-size: 30px;
+    color: #025395;
+  }
 }
 
 .noaccount:hover {
   color: whitesmoke;
+  @media (min-width: 1000px) {
+    color: maroon;
+  }
 }
 
 .loginbutton {
   @include buttons;
+  @include font;
+  font-size: 10px;
+  @media (min-width: 1000px) {
+    font-size: 12px;
+  }
 }
 // End of Login page styles
 
 // Register page styles
 .Register {
-  text-align: center;
+  color: whitesmoke;
+  padding: 20px;
   @include font;
+  margin-bottom: 15px;
+  text-align: center;
   background-image: url("https://images.pexels.com/photos/2531237/pexels-photo-2531237.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
   background-size: cover;
   background-repeat: no-repeat;
-
+  height: 100%;
   @media (min-width: 1000px) {
+    width: 250%;
+    background-image: url("https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     text-align: center;
-    width: 100%;
   }
 }
 
@@ -234,6 +264,10 @@ html {
   padding: 15px;
   @include font;
   margin-bottom: 15px;
+  @media (min-width: 1000px) {
+    font-size: 50px;
+    color: #025395;
+  }
 }
 
 .create {
@@ -241,21 +275,77 @@ html {
   padding: 15px;
   @include font;
   margin-bottom: 15px;
+
+  @media (min-width: 1000px) {
+    font-size: 25px;
+    color: #025395;
+    background-color: silver;
+    opacity: 0.5;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
 }
 
 .loginnow {
   padding: 1.5rem;
   @include font;
+  color: #75b6ed;
+  @media (min-width: 1000px) {
+    font-size: 30px;
+    color: #025395;
+  }
+}
+
+.loginnow:hover {
+  color: whitesmoke;
+  @media (min-width: 1000px) {
+    color: maroon;
+  }
 }
 
 .registerbutton {
   @include buttons;
   @include font;
+  font-size: 10px;
+  @media (min-width: 1000px) {
+    font-size: 12px;
+  }
 }
 // End of Register page styles
 
-.user-settings {
-  margin-left: 30px;
-  margin-top: 70px;
+.settingheader {
+  width: 100%;
+  height: 20%;
+  margin-left: 10%;
+  padding-top: 25%;
+  margin-top: 0;
+  color: #c9ee60;
+  @media (min-width: 1000px) {
+    font-size: 40px;
+    width: 250%;
+    margin: 5px 100px 10px 20px;
+  }
 }
-// End of Burge Menu styles
+
+.settingtags {
+  width: 100%;
+  margin-left: 10%;
+  padding-top: 5%;
+  margin-top: 0;
+  color: whitesmoke;
+  font-style: italic;
+  @media (min-width: 1000px) {
+    font-size: 20px;
+    padding-top: 15%;
+  }
+}
+
+.settingsapp {
+  @media (min-width: 1000px) {
+    font-size: 20px;
+    padding-top: 15%;
+  }
+  background-color: #025395;
+  height: 100%;
+  border: 1px solid orange;
+}

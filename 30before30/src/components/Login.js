@@ -41,7 +41,7 @@ class Login extends React.Component {
       <div className="Login">
         <div className="LoginHeader">
           <h1>Welcome!</h1>
-          <h3>Please login</h3>
+          <p className="plogin">Please login</p>
         </div>
         <div>
           <form onSubmit={this.login}>

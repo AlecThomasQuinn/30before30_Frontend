@@ -57,13 +57,13 @@ class Register extends React.Component {
               onChange={this.handleChange}
             />
             <div className="rbutton">
-            <button className="registerbutton" type="submit">
-              Register!
-            </button>
+              <button className="registerbutton" type="submit">
+                Register!
+              </button>
             </div>
           </form>
           <Link to="/">
-            <h3 className="loginnow">Login now!</h3>
+            <h3 className="loginnow">Already have an acccount? Login now!</h3>
           </Link>
         </div>
       </div>
