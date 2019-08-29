@@ -105,16 +105,16 @@ const FormikListItem = withFormik({
     },
 
     handleSubmit(values, { setStatus }){
-        axios
+        axiosWithAuth()
         //https://reqres.in/api/users
-        //https://thirty-before-thirty-bw.herokuapp.com/api/items
-        .post('https://reqres.in/api/users', values)
+        //https://thirty-before-thirty-bw.herokuapp.com/api/user-items
+        .post('https://thirty-before-thirty-bw.herokuapp.com/api/user-items', values)
         .then(response => {
-            console.log(response.data);
+            console.log('from axios submit', response);
             setStatus(response.data);
         })
         .catch(error => {
-            console.log('axios catch from FormikListItem:', error);
+            console.log('axios catch from FormikListItem:', error.response);
         })
 
         //using axiosWithAuth() from utilites folder

@@ -38,8 +38,8 @@ class Register extends React.Component {
   render() {
     return (
       <div className="Register">
-        <h1>Register</h1>
-        <p>Please create a unique username and password:</p>
+        <h1 className="registerheader">Register</h1>
+        <p className="create">Please create a unique username and password:</p>
         <div>
           <form onSubmit={this.login}>
             <input
@@ -56,10 +56,14 @@ class Register extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-            <button type="submit">Register!</button>
+            <div className="rbutton">
+            <button className="registerbutton" type="submit">
+              Register!
+            </button>
+            </div>
           </form>
           <Link to="/">
-            <h3>Login now!</h3>
+            <h3 className="loginnow">Login now!</h3>
           </Link>
         </div>
       </div>
