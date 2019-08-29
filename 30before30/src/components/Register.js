@@ -29,7 +29,6 @@ class Register extends React.Component {
       )
       .then(response => {
         console.log("response value: ", response);
-        // localStorage.setItem("token", response.data.payload);
         this.props.history.push("/login");
       })
       .catch(err => console.log("error: ", err.response));
@@ -37,8 +36,9 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="Register">
         <h1>Register</h1>
+        <p>Please create a unique username and password:</p>
         <div>
           <form onSubmit={this.login}>
             <input
