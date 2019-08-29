@@ -1,24 +1,33 @@
 import React, { createContext } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 export const AppState = createContext();
 
 class AppContext extends React.Component{
-    state ={
-        bucketList: [{
-            "id": 4,
-            "name": "plant a garden",
-            "description": "a description",
-            "user_id": 2,
-            "category_id": 4,
-            "privacy": "public",
-            "complete": false,
-            "target_date": "2020-01-03",
-            "category_name": "Learning"
-          }],
-        active: true,
-        achieved: false,
-        search: false,
-        searchValue: ''
+    constructor() {
+        super();
+    
+        this.state = {
+          bucketList: [],
+          active: true,
+          achieved: false,
+          search: false
+        };
+      }
+
+      componentDidMount() {
+
+        axiosWithAuth()
+        .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
+        .then(res => {
+            console.log('from componentDidMount', res)
+            this.setState({
+                bucketList: res.data
+            })
+        })
+        .catch(err => {
+            console.log(err.response)
+        })
     }
 
     render(){

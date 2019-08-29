@@ -17,95 +17,68 @@ import { Link } from "react-router-dom";
 //importing Search Bar component
 import SearchBar from "./SearchBar";
 
+//importing AppState from Context API
+import { AppState } from "../contexts/AppContext";
+
 class BucketList extends React.Component {
-  constructor() {
-    super();
 
-    this.state = {
-      bucketList: [],
-      active: true,
-      achieved: false
-    };
-  }
-
-  //checks if active tab is true, and displays it
-  activeTab = () => {
-    if (this.state.active === false) {
-      this.setState({ active: true, achieved: false });
-    } else if (this.state.active === true) {
-      return this.state;
-    }
-  };
-  //checks if achieved tab is true, and displays it
-  achievedTab = () => {
-    if (this.state.achieved === false) {
-      this.setState({ active: false, achieved: true });
-    } else if (this.state.achieved === false) {
-      return this.state;
-    }
-  };
-
-  //Renders the active component upon click
-  renderBucketList = () => {
-    if (this.state.active === true) {
-      return this.state.bucketList.map(item => (
-        <ActiveItem item={item} key={item.id} />
-      ));
-    } else {
-      return this.state.bucketList.map(item => (
-        <AchievedItem item={item} key={item.id} />
-      ));
-    }
-  };
-
-  //toggle search bar on/off
-  toggleSearch = () => {
-    if (this.state.search === false) {
-      this.setState({ search: !this.state.search });
-    } else if (this.state.search === true) {
-      this.setState({ search: !this.state.search });
-    }
-  };
-
-  //Renders search bar when active, hides when not
-  renderSearch = () => {
-    if (this.state.search === true) {
-      return <SearchBar list={this.state} />;
-    }
-  };
-  componentDidMount() {
-    // axiosWithAuth()
-    // .get('https://reqres.in/api/users')
-    // .then(res => {
-    //     console.log('from componentDidMount', res)
-    //     this.setState({
-    //         bucketList: res.data.data
-    //     })
-    // })
-    // .catch(err => {
-    //     // console.log(err.response)
-    // })
-
-        axiosWithAuth()
-        .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
-        .then(res => {
-            console.log('from componentDidMount', res)
-            this.setState({
-                bucketList: res.data
-            })
-        })
-        .catch(err => {
-            console.log(err.response)
-        })
-    }
+    //Fetching state with Context API
+    static contextType = AppState;
     
     render(){
         
-        //fetchs our bucketList Array
- 
-        console.log('From BucketList', this.state)
-        return (
-            <>
+    //targeting bucketlist on state
+    const {bucketList, search, active, achieved }= this.context;
+
+    //checks if active tab is true, and displays it
+    const activeTab = () => {
+        if (active === false) {
+            this.setState({ active: true, achieved: false });
+    } else if (active === true) {
+        return this.context;
+    }
+    };
+//checks if achieved tab is true, and displays it
+    const achievedTab = () => {
+        if (achieved === false) {
+            this.setState({ active: false, achieved: true });
+        } else if (achieved === false) {
+            return this.context;
+        }
+    };  
+
+//Renders the active component upon click
+    const renderBucketList = () => {
+        if (active === true) {
+            return bucketList.map(item => (
+                <ActiveItem item={item} key={item.id} />
+            ));
+        } else {
+            return bucketList.map(item => (
+                <AchievedItem item={item} key={item.id} />
+            ));
+        }
+    };
+
+    //toggle search bar on/off
+    const toggleSearch = () => {
+        if (search === false) {
+            this.setState({ search: true });
+        } else if (search === true) {
+            this.setState({ search: false });
+        }
+    };
+    
+    //Renders search bar when active, hides when not
+    const renderSearch = () => {
+        if (search === true) {
+            return <SearchBar list={this.context} />;
+        }
+    };
+  
+    //   console.log('From BucketList', this.context)
+      return (
+          <>
                 <div id="App">
                     <SettingsMenu pageWrapId={"page-wrap"} outerContainerId={"App"} />
                     <div className='bucketListScene'>
@@ -113,13 +86,13 @@ class BucketList extends React.Component {
                             <h1>Bucket List</h1>
                             <div className='headerUtilities'>
                                 <h5 
-                                onClick={this.toggleSearch}
+                                onClick={toggleSearch}
                                 id='SearchBar'
                                 >
                                 Search</h5>
                             </div>
                             <div className='bucketListSearchBar'>
-                                {this.renderSearch()}
+                                {renderSearch()}
                             </div>
                         </div>
                         <div id='bucketListProgress'>
@@ -128,19 +101,19 @@ class BucketList extends React.Component {
                         <div className='navTabs'>
                             <div 
                             id ='activeTab'
-                            onClick={this.activeTab}
+                            onClick={activeTab}
                             >
                             Active
                             </div>
                             <div 
                             id='achievedTab'
-                            onClick={this.achievedTab}
+                            onClick={achievedTab}
                             >
                             Achieved
                             </div>
                         </div>
                         <div className='bucketListBody'>
-                            {this.renderBucketList()}
+                            {renderBucketList()}
                         </div>
                         <div className='buttonContainer'>
                             <Link to ='/list-item' id='addItemButton'>Add</Link>
