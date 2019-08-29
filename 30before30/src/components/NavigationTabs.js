@@ -1,14 +1,17 @@
 import React from 'react';
 
+//importing Link from react router dom to push user to different scenes
+import { Link } from 'react-router-dom';
+
 class NavigationTabs extends React.Component {
 
 
     render () {
         return (
             <div className='footerTabs'>
-                <div id='bucketListTab'>BucketList</div>
-                <div id='categoriesTab'>Categories</div>
-                <div id='settingsTab'>Settings</div>
+                <Link to ='/bucket-list' id='bucketListTab'>BucketList</Link>
+                <Link to ='/categories' id='categoriesTab'>Categories</Link>
+                <Link to ='/settings' id='settingsTab'>Settings</Link>
             </div>
         )
     }

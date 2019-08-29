@@ -29,7 +29,7 @@ class Login extends React.Component {
       )
       .then(response => {
         console.log("response value: ", response);
-        localStorage.setItem("token", response.data.payload);
+        localStorage.setItem("token", response.data.token);
         this.props.history.push("/bucket-list");
       })
       .catch(err => console.log("error: ", err.response));
