@@ -4,7 +4,7 @@ html {
     justify-content: center;
 
     .App {
-      width: 450px;
+      width: 29.6rem;
       height: 100%;
       padding: 1rem;
       background-image: linear-gradient(#75b6ed, 75%, white);
@@ -212,6 +212,11 @@ html {
       
       .unspecified-h1 {
         text-align: center;
+      }
+
+      .categories-title {
+        text-align: center;
+        padding-bottom: 3%;
       }
       //end of categories components css
 

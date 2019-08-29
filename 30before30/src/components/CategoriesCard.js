@@ -1,10 +1,18 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import SettingsMenu from "./SettingsMenu";
 
 export default function CategoriesCard() {
 
   return (
+    <>
+    <div className="categories-title">
+    <div id="App">
+            <SettingsMenu pageWrapId={"page-wrap"} outerContainerId={"App"} />
+            </div>
+      <h1>Categories</h1>
+    </div>
     <div className="category-list">
       <Card
         className="card"
@@ -48,5 +56,6 @@ export default function CategoriesCard() {
         header="Unspecified"
       />
     </div>
+    </>
   );
 }

@@ -105,9 +105,9 @@ class BucketList extends React.Component {
         console.log('From BucketList', this.state)
         return (
             <>
-            {/* <div id="App">
+            <div id="App">
             <SettingsMenu pageWrapId={"page-wrap"} outerContainerId={"App"} />
-            </div> */}
+            </div>
             <div className='bucketListScene'>
                 <div className='BucketListHeader'>
                     <h1>Bucket List</h1>
