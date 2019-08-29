@@ -11,6 +11,9 @@ import {default as ListItem} from './components/ListItemFunction';
 import CategoriesCard from "./components/CategoriesCard";
 import TravelComponent from  "./components/TravelComponent";
 import HealthAndFitnessComponent from "./components/HealthAndFitnessComponent";
+import WorkComponent from "./components/WorkComponent";
+
+
 
 import "./App.scss";
 
@@ -27,6 +30,10 @@ function App() {
         <Route exact path="/categoriesCard" component={CategoriesCard}/>
         <Route exact path="/travel" component={TravelComponent} />
         <Route exact path="/health-and-fitness" component={HealthAndFitnessComponent} />
+        <Route exact path="/work" component={WorkComponent} />
+
+
+
       </div>
     </Router>
   );
