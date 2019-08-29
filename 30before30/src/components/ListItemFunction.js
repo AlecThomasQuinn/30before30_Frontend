@@ -10,7 +10,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const ListItem = ({errors, touched, values, status}) => {
 
-    console.log('Values from ListItem', values);
+    //console.log('Values from ListItem', values);
     
     // need post request on submit AND 'put' request, will handle put w/ team
     
@@ -38,6 +38,9 @@ const ListItem = ({errors, touched, values, status}) => {
                         type='text' 
                         placeholder='Your goal here' 
                         />
+                    {touched.item_name && errors.item_name && (<p className="error">{errors.item_name}</p>)}
+                    {console.log('touched.item_name',touched.item_name)}
+                    
                     <Field 
                         name='description' 
                         component='textarea'
@@ -52,17 +55,24 @@ const ListItem = ({errors, touched, values, status}) => {
                         checked={values.privacy} 
                     />
                     <Field name='category_id' component='select'>
-                        <option>Please select a category</option>
-                        <option value={1}>category 1</option>
-                        <option value={2}>category 2</option>
-                        <option value={3}>category 3</option>
+                        <option value={0}>Please select a category</option>
+                        <option value={1}>Health and Fitness</option>
+                        <option value={2}>Travel</option>
+                        <option value={3}>Work</option>
+                        <option value={4}>Learning</option>
+                        <option value={5}>Love</option>
+                        {/* could be mapped but this is fine for now */}
                     </Field>
+                    { values.category_id == 0 && (<p className="error">{errors.item_name}</p>)}
+                    {console.log('touched.category_id', touched.category_id)}
+                    {console.log('values.category_id is 0', values.category_id == 0)}
+
                     <Field
                         name='target_date' type='date'
                         />
                     
                     {/* console log's like a mofo but you will see the array populate when the submit button is clicked */}
-                    <button type='submit' onCLick={console.log(items)}> Submit.</button> 
+                    <button type='submit'> Submit.</button> 
                 </Form>
 
                     {/* just mapping to verify object is there */}
@@ -87,13 +97,13 @@ const ListItem = ({errors, touched, values, status}) => {
             return{
                 item_name: item_name || '',
                 description: description || '',
-                category_id: Date.now(),
+                category_id: category_id,
                 privacy: privacy || true,
                 complete: complete || false,
                 target_date: target_date || ''
             };
         },
-        
+
         handleSubmit(values, { setStatus }){
             axiosWithAuth()
             //https://reqres.in/api/users
@@ -101,31 +111,27 @@ const ListItem = ({errors, touched, values, status}) => {
             //https://thirty-before-thirty-bw.herokuapp.com/api/items <-- post data to this endpoint
             //https://thirty-before-thirty-bw.herokuapp.com/api/user-items <-- get the array of items the user have
             
-            .post('https://thirty-before-thirty-bw.herokuapp.com/api/items', values)
-            .then(response => {
-                console.log('from axios submit', response);
-                setStatus(response.data);
-            })
-            .catch(error => {
-                console.log('From ListItem', values);
-            console.log('axios catch from FormikListItem:', error.response);
+                .post('https://thirty-before-thirty-bw.herokuapp.com/api/items', values)
+                .then(response => {
+                    console.log('from axios submit', response);
+                    setStatus(response.data);
+                })
+                .catch(error => {
+                    console.log('From ListItem', values);
+                console.log('axios catch from FormikListItem:', error.response);
         })
 
-        //using axiosWithAuth() from utilites folder
-    }
+    },
+
+    validationSchema: Yup.object().shape({
+        item_name: Yup.string().required('Your goal needs a name!'),
+        category_id: Yup.string().required('Your goal needs a category!')
+      })
 
 })(ListItem);
 
 
 export default FormikListItem; 
-
-// -input:
-//     -name           -Required       -string
-//     -description    -Not Required   -string
-//     -category_id    -Required       -integer
-//     -privacy        -Not Required   -boolean  // default to private | true === private, false === public
-//     -complete       -Not Required   -boolean  // default to false
-//     -date           -Not Required   -string
 
 //vvvvvvvvvvvvv -- Object that's being posted on the endpoint
 // {
