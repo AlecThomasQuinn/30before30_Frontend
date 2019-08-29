@@ -161,6 +161,9 @@ html {
 
       }
 
+      //end of catergories css
+
+      //categoreies components css
       .category-list {
         display: flex;
         flex-direction: column;
@@ -210,7 +213,13 @@ html {
       .unspecified-h1 {
         text-align: center;
       }
+      //end of categories components css
 
+      //animations for categories css
+      .animated {
+        animation-duration: 3s;
+        animation-delay: 2s;
+      }
   }
 }
 
