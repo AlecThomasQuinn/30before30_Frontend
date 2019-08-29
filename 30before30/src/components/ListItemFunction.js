@@ -38,7 +38,7 @@ const ListItem = ({errors, touched, values, status}) => {
                         type='text' 
                         placeholder='Your goal here' 
                         />
-                    {touched.item_name && errors.item_name && (<p className="error">{errors.item_name}</p>)}
+                    {touched.item_name && errors.item_name && (<p>{errors.item_name}</p>)}
                     {console.log('touched.item_name',touched.item_name)}
                     
                     <Field 
@@ -63,7 +63,7 @@ const ListItem = ({errors, touched, values, status}) => {
                         <option value={5}>Love</option>
                         {/* could be mapped but this is fine for now */}
                     </Field>
-                    { values.category_id == 0 && (<p className="error">{errors.item_name}</p>)}
+                    {0 == values.category_id && (<p>{errors.category_id}</p>)}
                     {console.log('touched.category_id', touched.category_id)}
                     {console.log('values.category_id is 0', values.category_id == 0)}
 
@@ -125,7 +125,7 @@ const ListItem = ({errors, touched, values, status}) => {
 
     validationSchema: Yup.object().shape({
         item_name: Yup.string().required('Your goal needs a name!'),
-        category_id: Yup.string().required('Your goal needs a category!')
+        category_id: Yup.bool().required('Your goal needs a category!'),
       })
 
 })(ListItem);
