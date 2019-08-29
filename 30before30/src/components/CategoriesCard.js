@@ -37,7 +37,7 @@ export default function CategoriesCard() {
       <Card
         className="card"
         id="love"
-        href="/learning"
+        href="/love"
         header="Love"
       />
 
