@@ -14,9 +14,6 @@ import SettingsMenu from "./SettingsMenu";
 //importing Link from react router dom to push user to different scenes
 import { Link } from 'react-router-dom';
 
-//importing Sort component
-import AddItemForm from './AddItemForm';
-
 //importing Search Bar component
 import SearchBar from './SearchBar';
 
@@ -76,16 +73,28 @@ class BucketList extends React.Component {
     }
     componentDidMount() {
 
+        // axiosWithAuth()
+        // .get('https://reqres.in/api/users')
+        // .then(res => {
+        //     console.log('from componentDidMount', res)
+        //     this.setState({
+        //         bucketList: res.data.data
+        //     })
+        // })
+        // .catch(err => {
+        //     // console.log(err.response)
+        // })
+
         axiosWithAuth()
-        .get('https://reqres.in/api/users')
+        .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
         .then(res => {
             console.log('from componentDidMount', res)
-            this.setState({
-                bucketList: res.data.data
-            })
+            // this.setState({
+            //     bucketList: res.data.data
+            // })
         })
         .catch(err => {
-            // console.log(err.response)
+            console.log(err.response)
         })
     }
     
@@ -93,7 +102,7 @@ class BucketList extends React.Component {
         
         //fetchs our bucketList Array
  
-        console.log('From BucketList', this.state.bucketList)
+        console.log('From BucketList', this.state)
         return (
             <>
             {/* <div id="App">
@@ -133,7 +142,7 @@ class BucketList extends React.Component {
                     </div>
                 </div>
                 <div className='bucketListBody'>
-                <AddItemForm props={this.state}/>
+
                     {this.renderBucketList()}
                 </div>
                 <div className='buttonContainer'>
