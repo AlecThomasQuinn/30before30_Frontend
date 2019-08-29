@@ -29,7 +29,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/bucket-list" component={BucketList} />
         <Route exact path="/list-item" component={ListItem} />
-        <Route exact path="/categoriesCard" component={CategoriesCard}/>
+        <Route exact path="/categories" component={CategoriesCard}/>
         <Route exact path="/travel" component={TravelComponent} />
         <Route exact path="/health-and-fitness" component={HealthAndFitnessComponent} />
         <Route exact path="/work" component={WorkComponent} />

@@ -6,7 +6,8 @@ import SettingsMenu from "./SettingsMenu";
 export default function CategoriesCard() {
 
   return (
-    <>
+<>
+  <div className="card-container">
     <div className="categories-title">
     <div id="App">
             <SettingsMenu pageWrapId={"page-wrap"} outerContainerId={"App"} />
@@ -56,6 +57,7 @@ export default function CategoriesCard() {
         header="Unspecified"
       />
     </div>
-    </>
+  </div>
+</>
   );
 }
