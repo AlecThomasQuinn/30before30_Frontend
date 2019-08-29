@@ -1,12 +1,4 @@
-import React, { useEffect } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-
-//importing Active & Achieved component's list
-import ActiveItem from "./ActiveItem";
-import AchievedItem from "./AchievedItem";
-
-//importing NavigationTabs Component
-import NavigationTabs from "./NavigationTabs";
+import React from "react";
 
 //importing settings menu component
 import SettingsMenu from "./SettingsMenu";
@@ -20,45 +12,25 @@ import SearchBar from "./SearchBar";
 //importing AppState from Context API
 import { AppState } from "../contexts/AppContext";
 
+
 class BucketList extends React.Component {
 
     //Fetching state with Context API
     static contextType = AppState;
+
     
     render(){
         
-    //targeting bucketlist on state
-    const {bucketList, search, active, achieved }= this.context;
-
-    //checks if active tab is true, and displays it
-    const activeTab = () => {
-        if (active === false) {
-            this.setState({ active: true, achieved: false });
-    } else if (active === true) {
-        return this.context;
-    }
-    };
-//checks if achieved tab is true, and displays it
-    const achievedTab = () => {
-        if (achieved === false) {
-            this.setState({ active: false, achieved: true });
-        } else if (achieved === false) {
-            return this.context;
-        }
-    };  
-
-//Renders the active component upon click
-    const renderBucketList = () => {
-        if (active === true) {
-            return bucketList.map(item => (
-                <ActiveItem item={item} key={item.id} />
-            ));
-        } else {
-            return bucketList.map(item => (
-                <AchievedItem item={item} key={item.id} />
-            ));
-        }
-    };
+    //targeting state
+    const {
+        bucketList, 
+        search, 
+        active, 
+        achieved, 
+        activeTab, 
+        achievedTab,
+        renderBucketList
+    }= this.context;
 
     //toggle search bar on/off
     const toggleSearch = () => {
@@ -76,7 +48,7 @@ class BucketList extends React.Component {
         }
     };
   
-    //   console.log('From BucketList', this.context)
+      console.log('From BucketList', bucketList)
       return (
           <>
                 <div id="App">
