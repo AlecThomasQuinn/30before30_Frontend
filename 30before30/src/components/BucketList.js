@@ -73,25 +73,13 @@ class BucketList extends React.Component {
     }
     componentDidMount() {
 
-        // axiosWithAuth()
-        // .get('https://reqres.in/api/users')
-        // .then(res => {
-        //     console.log('from componentDidMount', res)
-        //     this.setState({
-        //         bucketList: res.data.data
-        //     })
-        // })
-        // .catch(err => {
-        //     // console.log(err.response)
-        // })
-
         axiosWithAuth()
         .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
         .then(res => {
             console.log('from componentDidMount', res)
-            // this.setState({
-            //     bucketList: res.data.data
-            // })
+            this.setState({
+                bucketList: res.data
+            })
         })
         .catch(err => {
             console.log(err.response)
@@ -142,13 +130,11 @@ class BucketList extends React.Component {
                     </div>
                 </div>
                 <div className='bucketListBody'>
-
                     {this.renderBucketList()}
                 </div>
                 <div className='buttonContainer'>
                     <Link to ='/list-item' id='addItemButton'>Add</Link>
                 </div>
-                <NavigationTabs />
             </div>
             </>
         )
