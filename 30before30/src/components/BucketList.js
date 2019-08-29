@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 //importing Active & Achieved component's list
@@ -15,31 +15,22 @@ import SettingsMenu from "./SettingsMenu";
 import { Link } from 'react-router-dom';
 
 //importing Sort component
-import SortComponent from './SortComponent';
+import AddItemForm from './AddItemForm';
 
 //importing Search Bar component
 import SearchBar from './SearchBar';
 
 class BucketList extends React.Component {
-    
-    state = {
-        bucketList: [{
-            "id": 4,
-            "name": "plant a garden",
-            "description": "a description",
-            "user_id": 2,
-            "category_id": 4,
-            "privacy": "public",
-            "complete": false,
-            "target_date": "2020-01-03",
-            "category_name": "Learning"
-          }],
-        active: true,
-        achieved: false,
-        search: false,
-        searchValue: ''
-        // sort: false
+    constructor(){
+        super();
+
+        this.state = {
+            bucketList: [],
+              active: true,
+              achieved: false
+        }
     }
+
     
     //checks if active tab is true, and displays it
     activeTab = () => {
@@ -61,9 +52,9 @@ class BucketList extends React.Component {
     //Renders the active component upon click
     renderBucketList = () => {
         if (this.state.active === true){
-            return this.state.bucketList.map(item => <ActiveItem item={item} key={item.id}/>)
+            return this.state.bucketList.map(item => <ActiveItem item={item} key={item.id} />)
         } else {
-            return this.state.bucketList.map(item => <AchievedItem item={item} key={item.id}/>)
+            return this.state.bucketList.map(item => <AchievedItem item={item} key={item.id} />)
         }
     }
  
@@ -83,16 +74,26 @@ class BucketList extends React.Component {
             return <SearchBar list={this.state} />
         }
     }
+    componentDidMount() {
 
-    render(){
-  
         axiosWithAuth()
-            .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
-            .then(res => console.log(res))
-            .catch(err => console.log(err.response))
-  
+        .get('https://reqres.in/api/users')
+        .then(res => {
+            console.log('from componentDidMount', res)
+            this.setState({
+                bucketList: res.data.data
+            })
+        })
+        .catch(err => {
+            // console.log(err.response)
+        })
+    }
+    
+    render(){
         
-        // console.log(this.state)
+        //fetchs our bucketList Array
+ 
+        console.log('From BucketList', this.state.bucketList)
         return (
             <>
             {/* <div id="App">
@@ -132,6 +133,7 @@ class BucketList extends React.Component {
                     </div>
                 </div>
                 <div className='bucketListBody'>
+                <AddItemForm props={this.state}/>
                     {this.renderBucketList()}
                 </div>
                 <div className='buttonContainer'>

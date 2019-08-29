@@ -89,15 +89,15 @@ const FormikListItem = withFormik({
             category_id: 1,
             privacy: privacy || true,
             complete: complete || false,
-            date: target_date || ''
+            target_date: target_date || ''
         };
     },
 
     handleSubmit(values, { setStatus }){
         axiosWithAuth()
         //https://reqres.in/api/users
-        //https://thirty-before-thirty-bw.herokuapp.com/api/items
-        .post('https://reqres.in/api/users', values)
+        //https://thirty-before-thirty-bw.herokuapp.com/api/user-items
+        .post('https://thirty-before-thirty-bw.herokuapp.com/api/user-items', values)
         .then(response => {
             console.log('from axios submit', response);
             setStatus(response.data);
