@@ -10,6 +10,7 @@ html {
       background-image: linear-gradient(#75b6ed, 75%, white);
 
       .bucketListScene {
+        
         .BucketListHeader {
           display: flex;
           flex-wrap: wrap;
@@ -60,6 +61,7 @@ html {
             text-align: left;
             border: 1px solid red;
             padding: 0.5rem;
+            margin: .5rem 0;
 
             .itemDetails {
               padding: 0.5rem;
@@ -79,15 +81,18 @@ html {
             }
           }
         }
-
-        .AddItemButton {
+        
+        .buttonContainer{
           display: flex;
           justify-content: flex-end;
-
-          button {
-            margin-top: 0.7rem;
+          #addItemButton {
+            border: 1px solid red;
+            padding: .5rem .7rem;
+            margin-top: .3rem;
+            color: black;
           }
         }
+        
       }
     }
     .footerTabs {
@@ -97,15 +102,18 @@ html {
       text-align: center;
 
       #bucketListTab {
+        color: black;
         width: 33%;
         border-right: 1px solid gray;
       }
-
+      
       #categoriesTab {
+        color: black;
         width: 33%;
         border-right: 1px solid gray;
       }
       #settingsTab {
+        color: black;
         width: 33%;
       }
     }
