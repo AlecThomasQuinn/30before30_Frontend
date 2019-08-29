@@ -59,9 +59,11 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-            <button className="loginbutton" type="submit">
-              Log in
-            </button>
+            <div className="lbutton">
+              <button className="loginbutton" type="submit">
+                Log in
+              </button>
+            </div>
           </form>
           <Link to="/register">
             <h3 className="noaccount"> Don't have an account? Register now!</h3>

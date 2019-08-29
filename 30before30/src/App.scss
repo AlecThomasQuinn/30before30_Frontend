@@ -20,9 +20,9 @@ html {
         height: 100%;
         font-family: "Manjari", sans-serif;
       }
-      // width: 450px;
-      height: 85%;
-      padding: 1rem;
+     
+      width: 29rem;
+      height: 100%;
       background-color: #025395;
 
       .bucketListScene {
@@ -76,6 +76,7 @@ html {
             text-align: left;
             border: 1px solid red;
             padding: 0.5rem;
+            margin: 0.5rem 0;
 
             .itemDetails {
               padding: 0.5rem;
@@ -96,12 +97,14 @@ html {
           }
         }
 
-        .AddItemButton {
+        .buttonContainer {
           display: flex;
           justify-content: flex-end;
-
-          button {
-            margin-top: 0.7rem;
+          #addItemButton {
+            border: 1px solid red;
+            padding: 0.5rem 0.7rem;
+            margin-top: 0.3rem;
+            color: black;
           }
         }
       }
@@ -113,15 +116,18 @@ html {
       text-align: center;
 
       #bucketListTab {
+        color: black;
         width: 33%;
         border-right: 1px solid gray;
       }
 
       #categoriesTab {
+        color: black;
         width: 33%;
         border-right: 1px solid gray;
       }
       #settingsTab {
+        color: black;
         width: 33%;
       }
     }
@@ -172,6 +178,12 @@ html {
 // Login page styles
 .Login {
   text-align: center;
+  @include font;
+  background-image: url("https://images.pexels.com/photos/2531237/pexels-photo-2531237.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+
   @media (min-width: 1000px) {
     text-align: center;
     width: 100%;
@@ -181,7 +193,7 @@ html {
 .LoginHeader {
   color: whitesmoke;
   padding: 15px;
-  font-family: "Red Hat Text", sans-serif;
+  @include font;
   margin-bottom: 15px;
   h1 {
     font-family: "Red Hat Text", sans-serif;
@@ -190,22 +202,27 @@ html {
 
 .noaccount {
   padding: 1.5rem;
+  @include font;
+  color: #75b6ed;
+}
+
+.noaccount:hover {
+  color: whitesmoke;
 }
 
 .loginbutton {
-  display: flex;
-  color: whitesmoke;
-  background-color: #c72e7b;
-  padding: 0.5rem;
-  margin-top: 5%;
-  font-weight: bold;
-  font-size: 10px;
+  @include buttons;
 }
 // End of Login page styles
 
 // Register page styles
 .Register {
   text-align: center;
+  @include font;
+  background-image: url("https://images.pexels.com/photos/2531237/pexels-photo-2531237.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-size: cover;
+  background-repeat: no-repeat;
+
   @media (min-width: 1000px) {
     text-align: center;
     width: 100%;
@@ -215,23 +232,25 @@ html {
 .registerheader {
   color: whitesmoke;
   padding: 15px;
-  font-family: "Red Hat Text", sans-serif;
+  @include font;
   margin-bottom: 15px;
 }
 
 .create {
   color: whitesmoke;
   padding: 15px;
-  font-family: "Red Hat Text", sans-serif;
+  @include font;
   margin-bottom: 15px;
 }
 
 .loginnow {
   padding: 1.5rem;
+  @include font;
 }
 
 .registerbutton {
   @include buttons;
+  @include font;
 }
 // End of Register page styles
 
@@ -239,3 +258,4 @@ html {
   margin-left: 30px;
   margin-top: 70px;
 }
+// End of Burge Menu styles
