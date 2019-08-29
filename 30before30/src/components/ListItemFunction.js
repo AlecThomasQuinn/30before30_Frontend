@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import axios from "axios";
 import { Form, Field, withFormik } from "formik"; // a library to make making forms easier
 import * as Yup from "yup"; // for validation
@@ -9,17 +9,6 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 // the following form renders
 
 const ListItem = ({errors, touched, values, status}) => {
-
-    // {
-//     "id": 4,                             need ListItem ID on object
-//     "name": "plant a garden",            On Form 
-//     "description": "a description",      On Form
-//     "user_id": 2,                        need User ID on object
-//     "category_id": 4,                    On Form
-//     "privacy": "public",                 On Form
-//     "complete": false,                   On Form
-//     "target_date": "2020-01-03",         On Form
-// }
 
     // need post request on submit AND 'put' request, will handle put w/ team
 
@@ -62,9 +51,9 @@ const ListItem = ({errors, touched, values, status}) => {
                     />
                     <Field name='category' component='select'>
                         <option>Please select a category</option>
-                        <option>category 1</option>
-                        <option>category 2</option>
-                        <option>category 3</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
                     </Field>
                     <Field
                         name='target_date' type='date'
@@ -76,13 +65,12 @@ const ListItem = ({errors, touched, values, status}) => {
 
                     {/* just mapping to verify object is there */}
                     {items.map(item => (
-                        <ul key={item.id}>
-                            <li>ID: {item.id}</li>
+                        <ul key={item.name}>
                             <li>complete: {item.complete.toString()}</li>
                             <li>name: {item.name}</li>
                             <li>description: {item.description}</li>
                             <li>privacy: {item.privacy.toString()}</li>
-                            <li>category_name: {item.category}</li>
+                            <li>category_id: {item.category_id}</li>
                             <li>target_date: {item.target_date}</li>
                         </ul>
                     ))}
@@ -92,32 +80,31 @@ const ListItem = ({errors, touched, values, status}) => {
 };
 
 const FormikListItem = withFormik({
-    mapPropsToValues({ name, description, privacy, category, target_date, complete }) {
+    mapPropsToValues({ name, description, privacy, category_id, target_date, complete }) {
         return{
-            id: Date.now(),
-            name: name || '',
+            category_id: 1,
+            complete: complete || false,
             description: description || '',
+            name: name || '',
             privacy: privacy || true,
-            category_name: category || '',
             target_date: target_date || '',
-            complete: complete || false
         };
     },
 
     handleSubmit(values, { setStatus }){
-        axios
+        axiosWithAuth()
         //https://reqres.in/api/users
         //https://thirty-before-thirty-bw.herokuapp.com/api/items
-        .post('https://reqres.in/api/users', values)
+        .post('https://thirty-before-thirty-bw.herokuapp.com/api/items', values)
         .then(response => {
             console.log(response.data);
             setStatus(response.data);
         })
         .catch(error => {
-            console.log('axios catch from FormikListItem:', error);
+            console.log('axios catch from FormikListItem:', error.response);
         })
 
-        //using axiosWithAuth() from utilites folder
+        // using axiosWithAuth() from utilites folder
 
     }
 
@@ -125,3 +112,12 @@ const FormikListItem = withFormik({
 
 
 export default FormikListItem; 
+
+// {
+//     "category_id": 4,
+//     "complete": false,
+//     "description": "dedwedwe",
+//     "name": "Jerry Osorio",
+//     "privacy": true,
+//     "target_date": "20/20/2020"
+// }
