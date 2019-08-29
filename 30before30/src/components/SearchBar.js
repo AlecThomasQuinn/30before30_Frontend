@@ -37,7 +37,7 @@ class SearchBar extends React.Component {
                     name='title'
                     placeholder='Search Bucket List'
                     value={this.state.search}
-                    onChange={this.changeHandler.bind(this)}
+                    // onChange={this.changeHandler.bind(this)}
                 />
                 <button
                 type='submit'

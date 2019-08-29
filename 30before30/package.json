@@ -9,13 +9,9 @@
     "react-burger-menu": "^2.6.11",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-<<<<<<< HEAD
     "react-scripts": "^3.1.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.0"
-=======
-    "react-scripts": "^3.1.1"
->>>>>>> 660c28f460a5e07ef9900445b19359beb90c2781
   },
   "scripts": {
     "start": "react-scripts start",

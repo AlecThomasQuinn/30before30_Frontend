@@ -10,16 +10,6 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const ListItem = ({errors, touched, values, status}) => {
 
-    // {
-//     "id": 4,                             need ListItem ID on object
-//     "name": "plant a garden",            On Form 
-//     "description": "a description",      On Form
-//     "user_id": 2,                        need User ID on object
-//     "category_id": 4,                    On Form
-//     "privacy": "public",                 On Form
-//     "complete": false,                   On Form
-//     "target_date": "2020-01-03",         On Form
-// }
 
     // need post request on submit AND 'put' request, will handle put w/ team
 
@@ -71,18 +61,18 @@ const ListItem = ({errors, touched, values, status}) => {
                     />
                     
                     {/* console log's like a mofo but you will see the array populate when the submit button is clicked */}
-                    <button onCLick={console.log(items)}> Submit.</button> 
+                    <button type='submit' onCLick={console.log(items)}> Submit.</button> 
                 </Form>
 
                     {/* just mapping to verify object is there */}
                     {items.map(item => (
                         <ul key={item.id}>
-                            <li>ID: {item.id}</li>
+                            {/* <li>ID: {item.id}</li> */}
                             <li>complete: {item.complete.toString()}</li>
                             <li>name: {item.name}</li>
                             <li>description: {item.description}</li>
                             <li>privacy: {item.privacy.toString()}</li>
-                            <li>category_name: {item.category}</li>
+                            <li>category_id: {item.category_id}</li>
                             <li>target_date: {item.target_date}</li>
                         </ul>
                     ))}
@@ -92,36 +82,42 @@ const ListItem = ({errors, touched, values, status}) => {
 };
 
 const FormikListItem = withFormik({
-    mapPropsToValues({ name, description, privacy, category, target_date, complete }) {
+    mapPropsToValues({ name, description, privacy, category_id, target_date, complete }) {
         return{
-            id: Date.now(),
             name: name || '',
             description: description || '',
+            category_id: 1,
             privacy: privacy || true,
-            category_name: category || '',
-            target_date: target_date || '',
-            complete: complete || false
+            complete: complete || false,
+            date: target_date || ''
         };
     },
 
     handleSubmit(values, { setStatus }){
-        axios
+        axiosWithAuth()
         //https://reqres.in/api/users
         //https://thirty-before-thirty-bw.herokuapp.com/api/items
         .post('https://reqres.in/api/users', values)
         .then(response => {
-            console.log(response.data);
+            console.log('from axios submit', response);
             setStatus(response.data);
         })
         .catch(error => {
-            console.log('axios catch from FormikListItem:', error);
+            console.log('axios catch from FormikListItem:', error.response);
         })
 
         //using axiosWithAuth() from utilites folder
-
     }
 
 })(ListItem);
 
 
 export default FormikListItem; 
+
+// -input:
+//     -name           -Required       -string
+//     -description    -Not Required   -string
+//     -category_id    -Required       -integer
+//     -privacy        -Not Required   -boolean  // default to private | true === private, false === public
+//     -complete       -Not Required   -boolean  // default to false
+//     -date           -Not Required   -string

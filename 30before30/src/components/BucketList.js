@@ -86,10 +86,10 @@ class BucketList extends React.Component {
 
     render(){
   
-        // axiosWithAuth()
-        //     .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
-        //     .then(res => console.log(res))
-        //     .catch(err => console.log(err.response))
+        axiosWithAuth()
+            .get('https://thirty-before-thirty-bw.herokuapp.com/api/user-items')
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response))
   
         
         // console.log(this.state)
@@ -98,19 +98,6 @@ class BucketList extends React.Component {
             {/* <div id="App">
             <SettingsMenu pageWrapId={"page-wrap"} outerContainerId={"App"} />
             </div> */}
-            <form>
-                <input 
-                    type='text' 
-                    name='title'
-                    placeholder='Search Bucket List'
-                    value={this.state.search}
-                    onChange={this.changeHandler.bind(this)}
-                />
-                <button
-                type='submit'
-                onClick={this.searchItem}
-                >Search</button>
-            </form>
             <div className='bucketListScene'>
                 <div className='BucketListHeader'>
                     <h1>Bucket List</h1>
