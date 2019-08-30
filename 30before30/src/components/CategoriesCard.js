@@ -8,8 +8,11 @@ export default function CategoriesCard() {
   return (
     <>
 
+      
+      <div className="booger-menu">
+        <BurgerMenu />
+        </div>
       <div className="categories-title">
-      <BurgerMenu />
       <h1>Categories</h1>
       </div>
       <div className="category-list">
