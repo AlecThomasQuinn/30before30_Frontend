@@ -44,6 +44,7 @@ function App() {
           <PrivateRoute exact path="/learning" component={LearningComponent} />
           <PrivateRoute exact path="/love" component={LoveComponent} />
           <PrivateRoute exact path="/unspecified" component={UnspecifiedComponent} />
+          <PrivateRoute exact path="/settings" component={Settings} />
         </AppContext>
       </div>
     </Router>
