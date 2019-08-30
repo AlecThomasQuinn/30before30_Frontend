@@ -12,6 +12,8 @@ import SearchBar from "./SearchBar";
 //importing AppState from Context API
 import { AppState } from "../contexts/AppContext";
 
+import ActiveItem from './ActiveItem';
+
 
 class BucketList extends React.Component {
 
@@ -29,26 +31,29 @@ class BucketList extends React.Component {
         achieved, 
         activeTab, 
         achievedTab,
-        renderBucketList
+        renderBucketList,
+        toggleSearch,
+        changeHandler,
+        searchValue
     }= this.context;
-
-    //toggle search bar on/off
-    const toggleSearch = () => {
-        if (search === false) {
-            this.setState({ search: true });
-        } else if (search === true) {
-            this.setState({ search: false });
-        }
-    };
     
     //Renders search bar when active, hides when not
     const renderSearch = () => {
         if (search === true) {
-            return <SearchBar list={this.context} />;
+            return <SearchBar list={bucketList} />;
         }
     };
+
+    //Filters through the bucketList and if it cannot find the item's name, it won't return it, if it does
+    bucketList.filter(
+        (item) => {
+            // console.log('From Search Filter',item)
+            return item.item_name.indexOf(searchValue) !== -1; 
+        }
+    );
+   
   
-      console.log('From BucketList', bucketList)
+      console.log('From BucketList', this.context)
       return (
           <>
                 <div id="App">
@@ -56,20 +61,17 @@ class BucketList extends React.Component {
                     <div className='bucketListScene'>
                         <div className='BucketListHeader'>
                             <h1>Bucket List</h1>
-                            <div className='headerUtilities'>
-                                <h5 
-                                onClick={toggleSearch}
-                                id='SearchBar'
-                                >
-                                Search</h5>
-                            </div>
-                            <div className='bucketListSearchBar'>
-                                {renderSearch()}
-                            </div>
                         </div>
-                        <div id='bucketListProgress'>
-                            <p id='bucketListProgress'>Progress: %0</p>
-                        </div>
+                        {/* <div className='bucketListSearchBar'>
+                            <form onSubmit={e => e.preventDefault()}>
+                                <input 
+                                    type='text' 
+                                    placeholder='Search Bucket List'
+                                    value={searchValue}
+                                    onChange={changeHandler.bind()}
+                                />
+                            </form>
+                        </div> */}
                         <div className='navTabs'>
                             <div 
                             id ='activeTab'
@@ -85,7 +87,10 @@ class BucketList extends React.Component {
                             </div>
                         </div>
                         <div className='bucketListBody'>
-                            {renderBucketList()}
+                        {bucketList.map((item)=> {
+                            return <ActiveItem item={item} key={item.id} />
+                        })}
+                            {/* {renderBucketList()} */}
                         </div>
                         <div className='buttonContainer'>
                             <Link to ='/list-item' id='addItemButton'>Add</Link>
