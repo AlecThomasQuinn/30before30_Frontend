@@ -4,49 +4,54 @@ import "semantic-ui-css/semantic.min.css";
 import BurgerMenu from "./SettingsMenu";
 
 export default function CategoriesCard() {
+
   return (
     <>
+
+      <div className="categories-title">
       <BurgerMenu />
+      <h1>Categories</h1>
+      </div>
       <div className="category-list">
         <Card
           className="card"
           id="travel"
-          href="#card-example-link-card"
+          href="/travel"
           header="Travel"
         />
 
         <Card
           className="card"
           id="health-and-fitness"
-          href="#card-example-link-card"
+          href="/health-and-fitness"
           header="Health and Fitness"
         />
 
         <Card
           className="card"
           id="work"
-          href="#card-example-link-card"
+          href="/work"
           header="Work"
         />
 
         <Card
           className="card"
           id="learning"
-          href="#card-example-link-card"
+          href="/learning"
           header="Learning"
         />
 
         <Card
           className="card"
           id="love"
-          href="#card-example-link-card"
+          href="/love"
           header="Love"
         />
 
         <Card
           className="card"
           id="unspecified"
-          href="#card-example-link-card"
+          href="/unspecified"
           header="Unspecified"
         />
       </div>
