@@ -36,7 +36,7 @@ class BucketList extends React.Component {
     //Renders search bar when active, hides when not
     const renderSearch = () => {
         if (search === true) {
-            return <SearchBar list={this.context} />;
+            return <SearchBar list={bucketList} />;
         }
     };
   
@@ -49,7 +49,7 @@ class BucketList extends React.Component {
                         <div className='BucketListHeader'>
                             <h1>Bucket List</h1>
                             <h5 
-                            onClick={toggleSearch()}
+                            onClick={toggleSearch}
                             id='SearchBar'
                             >
                             Search

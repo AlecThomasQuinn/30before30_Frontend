@@ -5,6 +5,9 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 import ActiveItem from "../components/ActiveItem";
 import AchievedItem from "../components/AchievedItem";
 
+//importing SearchBar Component
+import SearchBar from '../components/SearchBar';
+
 //exporting state from Context API
 export const AppState = createContext();
 
@@ -87,7 +90,8 @@ class AppContext extends React.Component{
                 activeTab: this.activeTab,
                 achievedTab: this.achievedTab,
                 renderBucketList: this.renderBucketList,
-                toggleSearch: this.toggleSearch
+                toggleSearch: this.toggleSearch,
+                changeHandler: this.changeHandler
             }}
             >
             {this.props.children}

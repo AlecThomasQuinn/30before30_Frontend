@@ -1,33 +1,37 @@
 import React from 'react';
 import ActiveItem from './ActiveItem';
 
+//importing AppState from Context API
+import { AppState } from "../contexts/AppContext";
+
 class SearchBar extends React.Component {
 
-    state = {
-        search: ''
-    }
+    //Fetching state with Context API
+    static contextType = AppState;
 
-    bucketList = this.props.list.bucketlist;
-    
-    changeHandler = e => {
-        this.setState({search: e.target.value})
-    }
     
     render(){
-        
-        let filterItems = this.bucketList;
+
+        //targeting state
+        const {
+            bucketList, 
+            search, 
+            changeHandler
+        }= this.context;
+
+        console.log('From SearchBar', bucketList)
         
         //Maps through the BucketList and returns each item individually
-        filterItems.map((item)=> {
+        bucketList.map((item)=> {
             return <ActiveItem item={item} key={item.id} />
         })
 
         //Filters through the bucketList and if it cannot find the item's name, it won't return it, if it does
-        filterItems.filter(
-            (item) => {
-                return item.name.indexOf(this.state.search) !== -1; 
-            }
-        );
+        // bucketList.filter(
+        //     (item) => {
+        //         return item.name.indexOf(this.state.search) !== -1; 
+        //     }
+        // );
 
         // console.log('from SearchBar', this.props)
         return (
@@ -36,8 +40,8 @@ class SearchBar extends React.Component {
                     type='text' 
                     name='title'
                     placeholder='Search Bucket List'
-                    value={this.state.search}
-                    // onChange={this.changeHandler.bind(this)}
+                    value={search}
+                    onChange={changeHandler}
                 />
                 <button
                 type='submit'
