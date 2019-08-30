@@ -1,6 +1,6 @@
 import React from "react";
-import { AppState } from "../contexts/AppContext";
-import LoveCard from "./CategoriesCard/LoveCard";
+import { AppState } from "../../contexts/AppContext";
+import LoveCard from "../CategoriesCard/LoveCard";
 
 
 const LoveComponent = () =>  (

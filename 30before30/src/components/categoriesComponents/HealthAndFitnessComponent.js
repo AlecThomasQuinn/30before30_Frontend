@@ -1,6 +1,6 @@
 import React from "react";
-import { AppState } from "../contexts/AppContext";
-import HealthAndFitnessCard from "../components/CategoriesCard/HealthAndFitnessCard" ;
+import { AppState } from "../../contexts/AppContext";
+import HealthAndFitnessCard from "../CategoriesCard/HealthAndFitnessCard" ;
 
 const HealthAndFitnessComponent = () =>  (
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { AppState } from "../contexts/AppContext";
-import WorkCard from "./CategoriesCard/WorkCard";
+import { AppState } from "../../contexts/AppContext";
+import WorkCard from "../CategoriesCard/WorkCard";
 
 const WorkComponent = () =>  (
 

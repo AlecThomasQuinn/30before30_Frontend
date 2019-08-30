@@ -1,6 +1,6 @@
 import React from "react";
-import { AppState } from "../contexts/AppContext";
-import TravelCard from "./CategoriesCard/TravelCard";
+import { AppState } from "../../contexts/AppContext";
+import TravelCard from "../CategoriesCard/TravelCard";
 
 
 const TravelComponent = () =>  (

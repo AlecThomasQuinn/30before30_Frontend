@@ -1,6 +1,6 @@
 import React from "react";
-import { AppState } from "../contexts/AppContext";
-import LearningCard from "./CategoriesCard/LearningCard";
+import { AppState } from "../../contexts/AppContext";
+import LearningCard from "../CategoriesCard/LearningCard";
 
 
 const LearningComponent = () =>  (

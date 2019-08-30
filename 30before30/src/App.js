@@ -10,11 +10,11 @@ import "semantic-ui-css/semantic.min.css";
 import BucketList from './components/BucketList';
 import {default as ListItem} from './components/ListItemFunction';
 import CategoriesCard from "./components/CategoriesCard";
-import TravelComponent from  "./components/TravelComponent";
-import HealthAndFitnessComponent from "./components/HealthAndFitnessComponent";
-import WorkComponent from "./components/WorkComponent";
-import LearningComponent from "./components/LearningComponent";
-import LoveComponent from "./components/LoveComponent";
+import TravelComponent from  "./components/categoriesComponents/TravelComponent";
+import HealthAndFitnessComponent from "./components/categoriesComponents/HealthAndFitnessComponent";
+import WorkComponent from "./components/categoriesComponents/WorkComponent";
+import LearningComponent from "./components/categoriesComponents/LearningComponent";
+import LoveComponent from "./components/categoriesComponents/LoveComponent";
 import AppContext from "./contexts/AppContext";
 
 import "./App.scss";
