@@ -19,13 +19,14 @@ class AppContext extends React.Component{
           bucketList: [],
           active: true,
           achieved: false,
-          search: false
+          search: false,
+          searchValue: ''
         };
       }
 
     //Keeps track for search in BucketList
       changeHandler = e => {
-        this.setState({search: e.target.value})
+        this.setState({searchValue: e.target.value})
     }
 
     //checks if active tab is true, and displays it

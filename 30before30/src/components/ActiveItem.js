@@ -3,7 +3,7 @@ import React from 'react';
 class ActiveItem extends React.Component {
 
     render(){
-        console.log('ActiveItem', this.props)
+        // console.log('ActiveItem', this.props)
         return (
             <>
                 <div className ='bucketListItem'>
