@@ -30,7 +30,7 @@ html {
       .bucketListScene {
         color: white;
         text-shadow: 1px 1px 3px black;
-
+        
         .BucketListHeader {
           display: flex;
           flex-wrap: wrap;
@@ -69,16 +69,18 @@ html {
         }
 
         .bucketListBody {
-          height: 100%;
+          background-color: #025395;
           margin-top: 1rem;
           background-color: rgb(34, 83, 144);
           
           padding: 1rem;
-
+          
           .bucketListItem {
             width: inherit;
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
             text-align: left;
             border-bottom: 1px solid black;
             padding: 0.5rem;
@@ -92,28 +94,57 @@ html {
             box-shadow: 1px 1px 5px black;
             color: white;
 
+            .Cardbuttons{
+              display: flex;
+              justify-content: space-around;
+              width: 40%;
+
+                #editButton{
+                  @include buttons;
+                  border: none;
+                  width: 4rem;
+                  height: 2rem;
+                  font-size: 1rem;
+                  box-shadow: 1px 1px 5px black;
+                  text-shadow: 1px 1px 1px black;
+                  background-color: #6ab04c;
+                }
+                #deleteButton{
+                  @include buttons;
+                  border: none;
+                  width: 4rem;
+                  height: 2rem;
+                  font-size: 1rem;
+                  box-shadow: 1px 1px 5px black;
+                  text-shadow: 1px 1px 1px black;
+                  background-color: #eb4d4b;
+                }
+            }
+            
             .itemDetails {
               padding: 0.5rem;
             }
-
+            
             h3 {
               margin: 0;
             }
-
+            
             p {
               font-size: 0.8rem;
             }
-
+            
             img {
               width: 20%;
               height: 10%;
             }
           }
         }
-
+        
         .buttonContainer {
           display: flex;
           justify-content: flex-end;
+          background-color: #025395;
+
           #addItemButton {
             @include buttons;
             width: 4rem;
@@ -121,6 +152,7 @@ html {
             box-shadow: 1px 1px 5px black;
             text-align: center;
             margin-right: 10px;
+            margin-bottom: 20px;
           }
         }
       }
@@ -193,6 +225,8 @@ html {
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-color: #025395;
+      height: 100%;
     }
 
     .air-plane-img {

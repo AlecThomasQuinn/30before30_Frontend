@@ -34,7 +34,8 @@ class BucketList extends React.Component {
         renderBucketList,
         toggleSearch,
         changeHandler,
-        searchValue
+        searchValue,
+        deleteItem
     }= this.context;
     
     //Renders search bar when active, hides when not
@@ -88,7 +89,7 @@ class BucketList extends React.Component {
                         </div>
                         <div className='bucketListBody'>
                         {bucketList.map((item)=> {
-                            return <ActiveItem item={item} key={item.id} />
+                            return <ActiveItem item={item} key={item.id} deleteItem={deleteItem}/>
                         })}
                             {/* {renderBucketList()} */}
                         </div>
