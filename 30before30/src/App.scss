@@ -234,6 +234,13 @@ html {
         text-align: center;
       }
 
+      .work-container {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+      }
+
       .learning-img {
         max-width: 420px;
       }
