@@ -10,7 +10,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const ListItem = ({errors, touched, values, status}) => {
 
-    //console.log('Values from ListItem', values);
+    // console.log('Values from ListItem', values);
     
     // need post request on submit AND 'put' request, will handle put w/ team
     
