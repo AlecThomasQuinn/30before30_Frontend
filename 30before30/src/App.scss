@@ -178,6 +178,79 @@ html {
       background-size: 300px 110px;
     }
 
+      //end of catergories css
+
+      //categoreies components css
+
+      .card-container {
+        background-image: url("https://images.pexels.com/photos/2531237/pexels-photo-2531237.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%; 
+
+      }
+
+      .category-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .air-plane-img {
+        width: 100%;
+      }
+
+      .travel-h1 {
+        text-align: center;
+      }
+
+      .handf-img {
+        max-width: 420px;
+      }
+
+      .handf-h1 {
+        text-align: center;
+      }
+
+      .work-img {
+        max-width: 420px;
+      }
+
+      .work-h1 {
+        text-align: center;
+      }
+
+      .learning-img {
+        max-width: 420px;
+      }
+
+      .learning-h1 {
+        text-align: center;
+      }
+
+      .love-img {
+        max-width: 420px;
+      }
+
+      .love-h1 {
+        text-align: center;
+      }
+      
+      .unspecified-h1 {
+        text-align: center;
+      }
+
+      .categories-title {
+        text-align: center;
+        padding-bottom: 3%;
+      }
+      //end of categories components css
+
+      //animations for categories css
+      .animated {
+        animation-duration: 3s;
+        animation-delay: 2s;
+      }
     #unspecified {
       background-image: url("https://images.unsplash.com/photo-1546019170-f1f6e46039f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80");
       background-size: 300px 150px;
