@@ -10,7 +10,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const ListItem = ({errors, touched, values, status}) => {
 
-    // console.log('Values from ListItem', values);
+    //console.log('Values from ListItem', values);
     
     // need post request on submit AND 'put' request, will handle put w/ team
     
@@ -74,6 +74,20 @@ const ListItem = ({errors, touched, values, status}) => {
                     {/* console log's like a mofo but you will see the array populate when the submit button is clicked */}
                     <button type='submit'> Submit.</button> 
                 </Form>
+
+                    {/* just mapping to verify object is there */}
+                    {items.map(item => (
+                        <ul key={item.id}>
+                            {/* <li>ID: {item.id}</li> */}
+                            {/* <li>complete: {item.complete.toString()}</li>
+                            <li>name: {item.item_name}</li>
+                            <li>description: {item.description}</li>
+                            <li>privacy: {item.privacy.toString()}</li>
+                            <li>category_id: {item.category_id}</li>
+                            <li>target_date: {item.target_date}</li> */}
+                        </ul>
+                    ))}
+
             </div>
         );
     };
@@ -118,15 +132,3 @@ const ListItem = ({errors, touched, values, status}) => {
 
 
 export default FormikListItem; 
-
-//vvvvvvvvvvvvv -- Object that's being posted on the endpoint
-// {
-//     category: "category 1" <--needs to be removed
-//     category_id: 1
-//     complete: false
-//     description: "wedwedwe"
-//     item_name: ""
-//     name: "Jerry Osorio" <--needs to be removed
-//     privacy: true
-//     target_date: "2019-07-31"
-// }
