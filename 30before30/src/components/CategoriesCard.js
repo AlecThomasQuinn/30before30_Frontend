@@ -47,13 +47,6 @@ export default function CategoriesCard() {
           href="/love"
           header="Love"
         />
-
-        <Card
-          className="card"
-          id="unspecified"
-          href="/unspecified"
-          header="Unspecified"
-        />
       </div>
     </>
   );
