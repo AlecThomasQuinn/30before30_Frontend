@@ -6,10 +6,10 @@ class AchievedItem extends React.Component {
         return (
             <>
                 <div className ='bucketListItem'>
-                    <img src={this.props.item.avatar} alt=''/>
                     <div className='itemDetails'>
-                        <h3>{this.props.item.first_name} {this.props.item.last_name}</h3>
-                        <p>{this.props.item.email}</p>
+                        <h3>{this.props.item.item_name}</h3>
+                        <p>{this.props.item.description}</p>
+                        <p>{this.props.item.target_date}</p>
                     </div>
                 </div>
             </>

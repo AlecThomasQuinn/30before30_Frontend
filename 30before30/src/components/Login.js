@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -38,8 +39,10 @@ class Login extends React.Component {
   render() {
     return (
       <div className="Login">
-        <h1>Welcome!</h1>
-        <h3>Please login</h3>
+        <div className="LoginHeader">
+          <h1>Welcome!</h1>
+          <h3>Please login</h3>
+        </div>
         <div>
           <form onSubmit={this.login}>
             <input
@@ -56,9 +59,15 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-            <button type="submit">Log in</button>
+            <div className="lbutton">
+              <button className="loginbutton" type="submit">
+                Log in
+              </button>
+            </div>
           </form>
-          {/* <button onClick={() => localStorage.clear()}>Log Out</button> */}
+          <Link to="/register">
+            <h3 className="noaccount"> Don't have an account? Register now!</h3>
+          </Link>
         </div>
       </div>
     );

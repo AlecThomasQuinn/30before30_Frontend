@@ -1,25 +1,32 @@
 import React from "react";
-import { slide as Menu } from "react-burger-menu";
+import { reveal as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
+import "./SettingsMenu.css";
 
-export default props => {
-  return (
-    <Menu {...props}>
-      <Link className="menu-item" to="/">
-        Settings
-      </Link>
+class BurgerMenu extends React.Component {
+  showSettings(event) {
+    event.preventDefault();
+  }
 
-      <Link className="menu-item" to="/bucket-list">
-        Bucket List
-      </Link>
+  render() {
+    // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
+    return (
+      <Menu width={"25%"}>
+        <Link id="home" className="menu-item" to="/settings">
+          Settings
+        </Link>
+        <Link id="about" className="menu-item" to="/bucket-list">
+          Bucket List
+        </Link>
+        <Link id="contact" className="menu-item" to="/categoriesCard">
+          Categories
+        </Link>
+        <Link onClick={this.showSettings} className="menu-item--small" to="">
+          Logout
+        </Link>
+      </Menu>
+    );
+  }
+}
 
-      <Link className="menu-item" to="/categories">
-        Categories
-      </Link>
-
-      <Link className="menu-item" to="/login">
-        Logout
-      </Link>
-    </Menu>
-  );
-};
+export default BurgerMenu;
