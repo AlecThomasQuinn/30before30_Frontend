@@ -5,6 +5,9 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 import ActiveItem from "../components/ActiveItem";
 import AchievedItem from "../components/AchievedItem";
 
+//importing SearchBar Component
+import SearchBar from '../components/SearchBar';
+
 //exporting state from Context API
 export const AppState = createContext();
 
@@ -16,11 +19,17 @@ class AppContext extends React.Component{
           bucketList: [],
           active: true,
           achieved: false,
-          search: false
+          search: false,
+          searchValue: ''
         };
       }
 
-      //checks if active tab is true, and displays it
+    //Keeps track for search in BucketList
+      changeHandler = e => {
+        this.setState({searchValue: e.target.value})
+    }
+
+    //checks if active tab is true, and displays it
         activeTab = () => {
             if (this.state.active === false) {
                 this.setState({ active: !this.state.active, achieved: !this.state.achieved });
@@ -29,7 +38,7 @@ class AppContext extends React.Component{
             }
         };
     //checks if achieved tab is true, and displays it
-    achievedTab = () => {
+        achievedTab = () => {
         if (this.state.achieved === false) {
             this.setState({ active: !this.state.active, achieved: !this.state.achieved });
         } else if (this.state.achieved === false) {
@@ -47,6 +56,15 @@ class AppContext extends React.Component{
                  return this.state.bucketList.map(item => (
                     <AchievedItem item={item} key={item.id} />
                 ));
+            }
+        };
+
+    //toggle search bar on/off
+        toggleSearch = () => {
+            if (this.state.search === false) {
+                this.setState({ search: !this.state.search });
+            } else if (this.state.search === true) {
+                this.setState({ search: !this.state.search });
             }
         };
 
@@ -72,7 +90,9 @@ class AppContext extends React.Component{
                 ...this.state, 
                 activeTab: this.activeTab,
                 achievedTab: this.achievedTab,
-                renderBucketList: this.renderBucketList
+                renderBucketList: this.renderBucketList,
+                toggleSearch: this.toggleSearch,
+                changeHandler: this.changeHandler
             }}
             >
             {this.props.children}
