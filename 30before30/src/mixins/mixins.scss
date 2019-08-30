@@ -13,3 +13,10 @@
 @mixin font {
   font-family: "Manjari", sans-serif;
 }
+
+@mixin categoryFormat {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+}

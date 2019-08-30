@@ -201,10 +201,7 @@ html {
       }
 
       .travel-container {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        text-align: center;
+        @include categoryFormat;
       }
 
       .travel-h1 {
@@ -220,10 +217,7 @@ html {
       }
 
       .health-and-fitness-container {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        text-align: center;
+        @include categoryFormat;
       }
 
       .work-img {
@@ -235,10 +229,7 @@ html {
       }
 
       .work-container {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        text-align: center;
+        @include categoryFormat;
       }
 
       .learning-img {
@@ -250,10 +241,7 @@ html {
       }
 
       .learning-container {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        text-align: center;
+        @include categoryFormat;
       }
 
       .love-img {
@@ -266,10 +254,7 @@ html {
       }
 
       .love-container {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        text-align: center;
+        @include categoryFormat;
       }
 
       .categories-title {
