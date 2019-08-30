@@ -265,6 +265,13 @@ html {
         text-align: center;
       }
 
+      .love-container {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+      }
+
       .categories-title {
         text-align: center;
         padding-bottom: 3%;
