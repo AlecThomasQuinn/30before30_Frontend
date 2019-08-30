@@ -12,12 +12,11 @@ import {default as ListItem} from './components/ListItemFunction';
 
 //Categories components
 import CategoriesCard from "./components/CategoriesCard";
-import TravelComponent from  "./components/TravelComponent";
-import HealthAndFitnessComponent from "./components/HealthAndFitnessComponent";
-import WorkComponent from "./components/WorkComponent";
-import LearningComponent from "./components/LearningComponent";
-import LoveComponent from "./components/LoveComponent";
-import UnspecifiedComponent from "./components/UnspecifiedComponent";
+import TravelComponent from  "./components/categoriesComponents/TravelComponent";
+import HealthAndFitnessComponent from "./components/categoriesComponents/HealthAndFitnessComponent";
+import WorkComponent from "./components/categoriesComponents/WorkComponent";
+import LearningComponent from "./components/categoriesComponents/LearningComponent";
+import LoveComponent from "./components/categoriesComponents/LoveComponent";
 import AppContext from "./contexts/AppContext";
 
 //importing Private Route Component
@@ -43,7 +42,6 @@ function App() {
           <PrivateRoute exact path="/work" component={WorkComponent} />
           <PrivateRoute exact path="/learning" component={LearningComponent} />
           <PrivateRoute exact path="/love" component={LoveComponent} />
-          <PrivateRoute exact path="/unspecified" component={UnspecifiedComponent} />
           <PrivateRoute exact path="/settings" component={Settings} />
         </AppContext>
       </div>

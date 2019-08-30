@@ -71,6 +71,8 @@ html {
         .bucketListBody {
           background-color: #025395;
           margin-top: 1rem;
+          background-color: rgb(34, 83, 144);
+          
           padding: 1rem;
           
           .bucketListItem {
@@ -80,6 +82,11 @@ html {
             justify-content: space-between;
             align-items: center;
             text-align: left;
+            border-bottom: 1px solid black;
+            padding: 0.5rem;
+            // margin: .5rem 0;
+            
+            
             padding: 0.5rem;
             margin: 0.5rem 0 0 0.5rem;
             background-color: #373a47;
@@ -219,6 +226,7 @@ html {
       flex-direction: column;
       align-items: center;
       background-color: #025395;
+      height: 100%;
     }
 
     .air-plane-img {
@@ -228,6 +236,11 @@ html {
     .travel-h1 {
       text-align: center;
     }
+
+      .travel-container {
+        @include categoryFormat;
+        background-color: rgb(34, 83, 144);
+      }
 
     .handf-img {
       max-width: 420px;
@@ -241,6 +254,14 @@ html {
       max-width: 420px;
     }
 
+      .health-and-fitness-container {
+        @include categoryFormat;
+        background-color: rgb(34, 83, 144);
+      }
+
+      .work-img {
+        max-width: 420px;
+      }
     .work-h1 {
       text-align: center;
     }
@@ -249,6 +270,14 @@ html {
       max-width: 420px;
     }
 
+      .work-container {
+        @include categoryFormat;
+        background-color: rgb(34, 83, 144);
+      }
+
+      .learning-img {
+        max-width: 420px;
+      }
     .learning-h1 {
       text-align: center;
     }
@@ -257,13 +286,25 @@ html {
       max-width: 420px;
     }
 
-    .love-h1 {
-      text-align: center;
-    }
+      .learning-container {
+        @include categoryFormat;
+        background-color: rgb(34, 83, 144);
+      }
 
-    .unspecified-h1 {
-      text-align: center;
-    }
+      .love-img {
+        max-width: 420px;
+      }
+      
+
+      .love-h1 {
+        text-align: center;
+      }
+
+      .love-container {
+        @include categoryFormat;
+        background-color: rgb(34, 83, 144);
+      }
+
 
     .categories-title {
       text-align: center;
@@ -271,21 +312,50 @@ html {
     }
     //end of categories components css
 
+      .booger-menu {
+        padding-bottom: 7%;
+      }
+
+      //animations for categories css
+      .animated {
+        animation-duration: 3s;
+        animation-delay: 2s;
+      }
     //animations for categories css
     .animated {
       animation-duration: 3s;
       animation-delay: 2s;
-    }
-    #unspecified {
-      background-image: url("https://images.unsplash.com/photo-1546019170-f1f6e46039f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80");
-      background-size: 300px 150px;
     }
 
     .category-list {
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-color: rgb(34, 83, 144);
     }
+
+    //categories card css
+
+    .health-and-fitness-card {
+        @include paddingStuff;
+    }
+
+    .work-card {
+        @include paddingStuff;
+    }
+
+    .learing-card {
+      @include paddingStuff;
+    }
+
+    .love-card {
+      @include paddingStuff;
+    }
+
+    .travel-card {
+      @include paddingStuff;
+    }
+
   }
 }
 
