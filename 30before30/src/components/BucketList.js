@@ -29,17 +29,9 @@ class BucketList extends React.Component {
         achieved, 
         activeTab, 
         achievedTab,
-        renderBucketList
+        renderBucketList,
+        toggleSearch
     }= this.context;
-
-    //toggle search bar on/off
-    const toggleSearch = () => {
-        if (search === false) {
-            this.setState({ search: true });
-        } else if (search === true) {
-            this.setState({ search: false });
-        }
-    };
     
     //Renders search bar when active, hides when not
     const renderSearch = () => {
@@ -56,13 +48,12 @@ class BucketList extends React.Component {
                     <div className='bucketListScene'>
                         <div className='BucketListHeader'>
                             <h1>Bucket List</h1>
-                            <div className='headerUtilities'>
-                                <h5 
-                                onClick={toggleSearch}
-                                id='SearchBar'
-                                >
-                                Search</h5>
-                            </div>
+                            <h5 
+                            onClick={toggleSearch()}
+                            id='SearchBar'
+                            >
+                            Search
+                            </h5>
                             <div className='bucketListSearchBar'>
                                 {renderSearch()}
                             </div>
