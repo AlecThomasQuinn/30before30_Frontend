@@ -53,7 +53,7 @@ class BucketList extends React.Component {
     );
    
   
-      console.log('From BucketList', bucketList)
+      console.log('From BucketList', this.context)
       return (
           <>
                 <div id="App">
