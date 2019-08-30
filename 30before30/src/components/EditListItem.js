@@ -105,13 +105,14 @@ const ListItem = ({errors, touched, values, status}) => {
         },
 
         handleSubmit(values, { setStatus }){
+
+            //const id = 
+
             axiosWithAuth()
-            //https://reqres.in/api/users
             
-            //https://thirty-before-thirty-bw.herokuapp.com/api/items <-- post data to this endpoint
-            //https://thirty-before-thirty-bw.herokuapp.com/api/user-items <-- get the array of items the user have
+            //https://thirty-before-thirty-bw.herokuapp.com//api/update-item/:id
             
-                .post('https://thirty-before-thirty-bw.herokuapp.com/api/items', values)
+                .post(`https://thirty-before-thirty-bw.herokuapp.com//api/update-item/${id}`, values)
                 .then(response => {
                     console.log('from axios submit', response);
                     setStatus(response.data);
