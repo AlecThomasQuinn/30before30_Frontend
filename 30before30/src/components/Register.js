@@ -31,6 +31,7 @@ class Register extends React.Component {
       .then(response => {
         console.log("response value: ", response);
         this.props.history.push("/");
+        e.target.reset();
       })
       .catch(err => console.log("error: ", err.response));
   };

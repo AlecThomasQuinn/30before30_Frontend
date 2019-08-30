@@ -32,6 +32,7 @@ class Login extends React.Component {
         console.log("response value: ", response);
         localStorage.setItem("token", response.data.token);
         this.props.history.push("/bucket-list");
+        e.target.reset();
       })
       .catch(err => console.log("error: ", err.response));
   };
