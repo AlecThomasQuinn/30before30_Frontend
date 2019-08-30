@@ -71,15 +71,17 @@ html {
         .bucketListBody {
           height: 100%;
           margin-top: 1rem;
+          background-color: rgb(34, 83, 144);
           
           .bucketListItem {
             width: inherit;
             display: flex;
             flex-wrap: wrap;
             text-align: left;
-            border: 1px solid red;
+            border-bottom: 1px solid black;
             padding: 0.5rem;
             margin: .5rem 0;
+            
             
             .itemDetails {
               padding: 0.5rem;
