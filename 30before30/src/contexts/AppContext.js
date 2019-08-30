@@ -84,18 +84,18 @@ class AppContext extends React.Component{
     }
     
     removeItem = id => {
-        this.props.bucketList(this.props.bucketList.filter(item => item.id != id))
+        
     }
 
-    deleteItem = () => {
-        axiosWithAuth()
-        const itemToDelete = this.state.bucketList.map(item => item.id)
-        .delete(`https://thirty-before-thirty-bw.herokuapp.com/api/user-items/${itemToDelete}`,itemToDelete)
-        .then(res => {console.log('From delete request',res)
-        this.removeItem(itemToDelete)
-    })
-        .catch( res => console.log(res))
-    }
+    // deleteItem = () => {
+    //     axiosWithAuth()
+    //     const itemToDelete = this.state.bucketList.map(item => item.id)
+    //     .delete(`https://thirty-before-thirty-bw.herokuapp.com/api/user-items/${itemToDelete}`,itemToDelete)
+    //     .then(res => {console.log('From delete request',res)
+    //     this.removeItem(itemToDelete)
+    // })
+    //     .catch( res => console.log(res))
+    // }
     
     render(){
 
@@ -109,7 +109,7 @@ class AppContext extends React.Component{
                 renderBucketList: this.renderBucketList,
                 toggleSearch: this.toggleSearch,
                 changeHandler: this.changeHandler,
-                deleteItem: this.deleteItem
+                removeItem: this.removeItem
             }}
             >
             {this.props.children}
