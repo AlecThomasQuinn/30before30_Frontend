@@ -21,7 +21,7 @@ class BurgerMenu extends React.Component {
         <Link id="contact" className="menu-item" to="/categoriesCard">
           Categories
         </Link>
-        <Link onClick={this.showSettings} className="menu-item--small" to="">
+        <Link className="menu-item--small" to="/">
           Logout
         </Link>
       </Menu>
