@@ -200,6 +200,13 @@ html {
         width: 100%;
       }
 
+      .travel-container {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+      }
+
       .travel-h1 {
         text-align: center;
       }
@@ -235,10 +242,6 @@ html {
       .love-h1 {
         text-align: center;
       }
-      
-      .unspecified-h1 {
-        text-align: center;
-      }
 
       .categories-title {
         text-align: center;
@@ -251,10 +254,6 @@ html {
         animation-duration: 3s;
         animation-delay: 2s;
       }
-    #unspecified {
-      background-image: url("https://images.unsplash.com/photo-1546019170-f1f6e46039f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80");
-      background-size: 300px 150px;
-    }
 
     .category-list {
       display: flex;
