@@ -219,6 +219,13 @@ html {
         text-align: center;
       }
 
+      .health-and-fitness-container {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+      }
+
       .work-img {
         max-width: 420px;
       }
