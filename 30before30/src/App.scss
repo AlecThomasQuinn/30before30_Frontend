@@ -286,6 +286,29 @@ html {
       align-items: center;
       background-color: rgb(34, 83, 144);
     }
+
+    //categories card css
+
+    .health-and-fitness-card {
+        @include paddingStuff;
+    }
+
+    .work-card {
+        @include paddingStuff;
+    }
+
+    .learing-card {
+      @include paddingStuff;
+    }
+
+    .love-card {
+      @include paddingStuff;
+    }
+
+    .travel-card {
+      @include paddingStuff;
+    }
+
   }
 }
 
