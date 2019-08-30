@@ -92,7 +92,7 @@ const ListItem = ({errors, touched, values, status}) => {
 
         handleSubmit(values, { setStatus }){
             axiosWithAuth()
-            //https://reqres.in/api/users
+            //https://reqres.in/api/users <-- TOO .
             
             //https://thirty-before-thirty-bw.herokuapp.com/api/items <-- post data to this endpoint
             //https://thirty-before-thirty-bw.herokuapp.com/api/user-items <-- get the array of items the user have
