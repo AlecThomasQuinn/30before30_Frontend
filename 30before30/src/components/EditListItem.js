@@ -10,7 +10,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const ListItem = ({errors, touched, values, status}) => {
 
-    // console.log('Values from ListItem', values);
+    //console.log('Values from ListItem', values);
     
     // need post request on submit AND 'put' request, will handle put w/ team
     
@@ -132,15 +132,3 @@ const ListItem = ({errors, touched, values, status}) => {
 
 
 export default FormikListItem; 
-
-//vvvvvvvvvvvvv -- Object that's being posted on the endpoint
-// {
-//     category: "category 1" <--needs to be removed
-//     category_id: 1
-//     complete: false
-//     description: "wedwedwe"
-//     item_name: ""
-//     name: "Jerry Osorio" <--needs to be removed
-//     privacy: true
-//     target_date: "2019-07-31"
-// }

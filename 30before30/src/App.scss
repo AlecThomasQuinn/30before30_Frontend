@@ -347,4 +347,15 @@ html {
   margin-left: 30px;
   margin-top: 70px;
 }
-// End of Burge Menu styles
+// End of Burger Menu styles
+
+.ListItemFormWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  background-color:whitesmoke;
+  margin: auto;
+}
+
+// End of List Item Form styles
