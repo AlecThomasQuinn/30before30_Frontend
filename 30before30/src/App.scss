@@ -249,9 +249,17 @@ html {
         text-align: center;
       }
 
+      .learning-container {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+      }
+
       .love-img {
         max-width: 420px;
       }
+      
 
       .love-h1 {
         text-align: center;

@@ -11,7 +11,7 @@ const LearningComponent = () =>  (
             const bucketlist = context;
             console.log(bucketlist,"testing");
                 return (
-        <div>
+        <div className="learning-container">
             <h1 className="learning-h1 animated bounce delay-2s">Learning</h1>
             <img className="learning-img" src="https://www.jisc.ac.uk/sites/default/files/styles/710px-wide/public/library-laptop-user.jpg?itok=XjSjwmvx" alt="picture of health and fitness"/>
             {bucketlist.bucketList.map(item => {
