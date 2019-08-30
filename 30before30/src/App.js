@@ -15,7 +15,6 @@ import HealthAndFitnessComponent from "./components/HealthAndFitnessComponent";
 import WorkComponent from "./components/WorkComponent";
 import LearningComponent from "./components/LearningComponent";
 import LoveComponent from "./components/LoveComponent";
-import UnspecifiedComponent from "./components/UnspecifiedComponent";
 import AppContext from "./contexts/AppContext";
 
 import "./App.scss";
@@ -38,7 +37,6 @@ function App() {
           <Route exact path="/work" component={WorkComponent} />
           <Route exact path="/learning" component={LearningComponent} />
           <Route exact path="/love" component={LoveComponent} />
-          <Route exact path="/unspecified" component={UnspecifiedComponent} />
 
         </AppContext>
       </div>
