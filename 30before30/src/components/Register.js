@@ -31,6 +31,7 @@ class Register extends React.Component {
       .then(response => {
         console.log("response value: ", response);
         this.props.history.push("/");
+        e.target.reset();
       })
       .catch(err => console.log("error: ", err.response));
   };
@@ -57,13 +58,13 @@ class Register extends React.Component {
               onChange={this.handleChange}
             />
             <div className="rbutton">
-            <button className="registerbutton" type="submit">
-              Register!
-            </button>
+              <button className="registerbutton" type="submit">
+                Register!
+              </button>
             </div>
           </form>
           <Link to="/">
-            <h3 className="loginnow">Login now!</h3>
+            <h3 className="loginnow">Already have an acccount? Login now!</h3>
           </Link>
         </div>
       </div>

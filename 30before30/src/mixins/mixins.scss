@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Manjari&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Manjari|Red+Hat+Text&display=swap");
 
 @mixin buttons {
   color: whitesmoke;
@@ -12,4 +11,17 @@
 
 @mixin font {
   font-family: "Manjari", sans-serif;
+}
+
+@mixin categoryFormat {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+}
+
+@mixin paddingStuff {
+  padding-top:5%; 
+  padding-left:15%;
+  padding-bottom:10%;
 }
