@@ -28,8 +28,8 @@ function App() {
         <AppContext>
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
-          {/* <Link to="/login">Click to login</Link> */}
           <Route exact path="/bucket-list" component={BucketList} />
+          <Route exact path="/settings" component={Settings} />
           <Route exact path="/categoriesCard" component={CategoriesCard} />
           <Route exact path="/list-item" component={ListItem} />
           <Route exact path="/travel" component={TravelComponent} />

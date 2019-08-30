@@ -32,6 +32,7 @@ class Login extends React.Component {
         console.log("response value: ", response);
         localStorage.setItem("token", response.data.token);
         this.props.history.push("/bucket-list");
+        e.target.reset();
       })
       .catch(err => console.log("error: ", err.response));
   };
@@ -41,7 +42,7 @@ class Login extends React.Component {
       <div className="Login">
         <div className="LoginHeader">
           <h1>Welcome!</h1>
-          <h3>Please login</h3>
+          <p className="plogin">Please login</p>
         </div>
         <div>
           <form onSubmit={this.login}>

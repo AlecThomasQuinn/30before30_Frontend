@@ -74,20 +74,6 @@ const ListItem = ({errors, touched, values, status}) => {
                     {/* console log's like a mofo but you will see the array populate when the submit button is clicked */}
                     <button type='submit'> Submit.</button> 
                 </Form>
-
-                    {/* just mapping to verify object is there */}
-                    {items.map(item => (
-                        <ul key={item.id}>
-                            {/* <li>ID: {item.id}</li> */}
-                            {/* <li>complete: {item.complete.toString()}</li>
-                            <li>name: {item.item_name}</li>
-                            <li>description: {item.description}</li>
-                            <li>privacy: {item.privacy.toString()}</li>
-                            <li>category_id: {item.category_id}</li>
-                            <li>target_date: {item.target_date}</li> */}
-                        </ul>
-                    ))}
-
             </div>
         );
     };
@@ -111,7 +97,7 @@ const ListItem = ({errors, touched, values, status}) => {
             //https://thirty-before-thirty-bw.herokuapp.com/api/items <-- post data to this endpoint
             //https://thirty-before-thirty-bw.herokuapp.com/api/user-items <-- get the array of items the user have
             
-                .post('https://thirty-before-thirty-bw.herokuapp.com/api/items', values)
+                .post('https://reqres.in/api/users', values)
                 .then(response => {
                     console.log('from axios submit', response);
                     setStatus(response.data);
